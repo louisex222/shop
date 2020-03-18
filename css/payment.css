@@ -46,7 +46,6 @@ html,body{
     min-width: 15%;
 }
 #header .phone i{
-    font-family: 'Font Awesome 5 Free Solid';
     color: #ff4e00;
     padding-right: 10px;
 }
@@ -171,7 +170,6 @@ html,body{
     
 }
 .nav .fa-search{
-    font-family: 'Font Awesome 5 Free Solid';
     font-size: 20px;
     display: inline-block;  
     cursor: pointer;
