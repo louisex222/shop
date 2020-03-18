@@ -765,8 +765,12 @@ table .close:hover{
     letter-spacing: 1px;
     margin-bottom: 20px;
 }
-.detail form button{
+.detail form  a {
     width: 30%;
+    text-decoration: none;
+}
+.detail form  div{
+    width: 100%;
     padding: 10px 0;
     background-color: #ff4e00;
     color: #fff;
@@ -777,7 +781,9 @@ table .close:hover{
     outline:none;
     border:none;
     cursor: pointer;
+    text-align: center;
 }
+
 .wrap .bigbox{
     display:flex;
     margin-top: 30px;
