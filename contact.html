@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+</head>
+<body>
+        <header id="header">
+                <div class="phone">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call 12345678099</h3>
+                </div>
+                <div class="logo">
+                    <h1>GOGGLES</h1>
+        
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user"></i>
+                    <div>
+                        <h3>My Cart</h3>
+                        <i class="fas fa-cart-arrow-down"></i>
+                    </div>
+                </div>
+        </header>
+            <label class="line"></label>
+        <div class="nav">
+            <i class="fas fa-bars"></i>
+            <ul>
+                <li><a href="index.html">HOME</a></li> 
+                <li><a href="about.html">ABOUT</a></li>
+                <li class="feature">
+                    <a href="shop.html">FEATURES</a>
+                    <ul>
+                        <li class="list">
+                            <div class="bigbox1">
+                                <div class="box1">
+                                    <h5>Tittle goes here</h5>
+                                    <ul>
+                                        <li>Designer Glasses</li>
+                                        <li>Ray-Ban</li>
+                                        <li>Prescription Glasses</li>
+                                    </ul>
+                                    <h5>View more pages</h5>
+                                    <ul>
+                                        <li>About</li>
+                                        <li>Customers</li>
+                                    </ul>
+                                </div>
+                                <div class="box2">
+                                    <h5>Tittle goes here</h5>
+                                    <img src="images/g2.jpg" alt="">
+                                </div>
+                                <div class="box3">
+                                    <h5>Tittle goes here</h5>
+                                    <img src="images/g3.jpg" alt="">
+                                </div>
+                                <hr>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="shop">
+                    <a href="shop.html">SHOP</a>
+                    <ul>
+                            <li class="list">
+                                <div class="bigbox2">
+                                    <div class="box1">
+                                        <h5>Tittle goes here</h5>
+                                        <ul>
+                                            <li>Designer Glasses</li>
+                                            <li>Ray-Ban</li>
+                                            <li>Prescription Glasses</li>
+                                            <li>Rx Sunglasses</li>
+                                            <li>Contact Lenses</li>
+                                            <li>Multifocal Glasses</li>
+                                            <li>Kids Glasses</li>
+                                            <li>Lightweight Glasses</li>
+                                            <li>Sports Glasses</li>
+                                        </ul>  
+                                    </div>
+                                    <div class="box1">
+                                        <h5>Tittle goes here</h5>
+                                        <ul>
+                                            <li>Brooks Brothers</li>
+                                            <li>Persol</li>
+                                            <li>Polo Ralph Lauren</li>
+                                            <li>Prada</li>
+                                            <li>Ray-Ban Jr</li>
+                                            <li>Sferoflex</li>
+                                            <li>Polo Ralph Lauren</li>
+                                            <li>Prada</li>
+                                            <li>Ray-Ban Jr</li>
+                                        </ul>
+                                    </div>
+                                    <div class="box2">
+                                        <h5>Tittle goes here</h5>
+                                        <img src="images/g1.jpg" alt="">
+                                    </div>
+                                    
+                                    <hr>
+                                </div>
+                            </li>
+                        </ul>
+                </li>
+                <li><a href="contact.html" class="active">CONTACT</a></li>
+            </ul>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="search">
+                <button>
+                    <i class="fa fa-times"></i>
+                </button>
+                <form action="" >
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                    
+                </form>
+            </div>
+            <div class="login">
+                <i class="fa fa-times"></i>
+                <h2>Login Now</h2>
+                
+                    <form action="" >
+                        <div class="box">
+        
+                            <label for="email">Email address</label>
+                            <input type="email">
+                        </div>
+                        <div class="box">
+        
+                            <label for="password">Password</label>
+                            <input type="password">
+                        </div>
+                        <div>
+        
+                            <input type="checkbox">
+                            <span>Check me out</span>
+                        </div>
+                        <button>Sign in</button>
+                    </form>
+                
+            </div>
+            <div class="cart">
+                <i class="fab fa-times"></i>
+                <ul>
+                    <li class="box">
+<!-- 
+                        <li>
+                            <span class="name">Opium (Grey)</span>
+                            <input type="text" value="1">
+                            <span class="cancel">X</span>
+                            <span class="price">$650.00</span>
+                        </li>
+                        <li>
+                            <span class="name">Opium (Grey)</span>
+                            <input type="text" value="1">
+                            <span class="cancel">X</span>
+                            <span class="price">$650.00</span>
+                        </li>
+                        <li>
+                                <span class="name">Opium (Grey)</span>
+                                <input type="text" value="1">
+                                <span class="cancel">X</span>
+                                <span class="price">$650.00</span>
+                        </li> -->
+                    </li>
+                    
+                </ul>
+                <div>
+                    <h4>Subtotal :</h4>
+                    <p class="total">$650.00 NTD</p>
+                    <button>CHECK OUT</button>
+                </div>
+            </div>
+        <div id="banner">
+            <div>
+                <ul>
+                    <li>
+                        <a href="glass.html">HOME</a>
+                        <i>|</i>
+                    </li>
+                    <li>CONTACT</li>
+                </ul>
+            </div>
+        </div>
+        <section id="section">
+            <div class="text">
+                <h2>Contact</h2>
+                <p>WE LOVE TO DISCUSS YOUR IDEA</p>
+
+            </div>
+            <div class="box">
+                <ul>
+                    <li>
+                        <i class="far fa-map"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>California, USA</p>
+
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <i class="far fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>Email : mail@example.com</p>
+
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+1 234 567 8901</p>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <form>
+                <div class="box">
+                    <div>
+                        <label class="name">NAME</label>
+                        <input type="text">
+
+                    </div>
+                    
+                    <div>
+                        <label class="email">EMIAL</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label class="subject">SUBJECT</label>
+                        <input type="text">
+                        
+                    </div>
+                </div>
+                <div class="box">
+                    <label class="message">MESSAGE</label>
+                    <textarea  id="textarea" cols="30" rows="8" type="submit"></textarea>
+                    <button>SUMBIT</button>
+                </div>
+            </form>
+        </section>
+        <div id="map"></div>
+    <footer id="footer">
+            <div class="box box1">
+                <h2>About Us</h2>
+                
+                <p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fas fa-rss"></i>
+                    <i class="fab fa-vk"></i>
+                </div>
+            </div>
+            <div class="box box2">
+                <h2>Get in touch</h2>
+                
+                <div>
+                    <h3>Location :</h3>
+                    <p>0926k 4th block building, king Avenue, New York City.</p>
+                    <div>
+                        <h3>Contact :</h3>
+                        <p>Phone : +121 098 8907 9987</p>
+                        <p>Email : info@example.com</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="box box3">
+                <h2>Quick Links</h2>
+                
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Error</li>
+                    <li>Shop</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div class="box box4">
+                <h2>Sign up for your offers</h2>
+                
+                <p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
+                <form action="">
+                    <input type="e-mail" name="email" placeholder="Enter your e-mail...">
+                    <button>
+                        <i class="far fa-envelope"></i>
+                    </button>
+                </form>
+            </div>
+    
+            <div class="copy">
+                <p>© 2020 Goggles. All Rights Reserved | Design by <span>Louis</span></p>
+            </div>
+    </footer> 
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js" crossorigin=""></script>  
+    <script src="js/contact.js"></script>
+</body>
+</html>
