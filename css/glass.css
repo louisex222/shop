@@ -787,7 +787,6 @@ html,body{
     display: inline-block;
 }
 #section ul i{
-    font-family: 'Font Awesome 5 Free Solid';
     font-size: 10px;
     color: #999;
     margin-bottom: 10px;
@@ -952,7 +951,6 @@ html,body{
     display: inline-block;
 }
 #carousel ul i{
-    font-family: 'Font Awesome 5 Free Solid';
     font-size: 10px;
     color: #999;
     margin-bottom: 10px;
