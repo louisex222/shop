@@ -66,12 +66,18 @@
     let loginclose = login.querySelector('.fa-times')
     
     user.onclick=function(){
-      login.style.right="17px"
+      login.style.right="0"
+      login.style.display ='flex'
     }
     loginclose.onclick =function(){
-      login.style.right='-30%'
+      login.style.right='-375px'
     }
-
+    let bar = document.querySelector('.fa-bars')
+    let ul = document.querySelector('.nav .wrap')
+    bar.onclick= function(){
+      ul.classList.toggle('display')  
+      
+    }
     // 購物車顯示
     let mycart =document.querySelector('#header .fa-cart-arrow-down')
     let cartlist =document.querySelector('.cart')

@@ -36,10 +36,17 @@
     let loginclose = login.querySelector('.fa-times')
     
     user.onclick=function(){
-      login.style.right="17px"
+      login.style.right="0"
+      login.style.display ='flex'
     }
     loginclose.onclick =function(){
-      login.style.right='-30%'
+      login.style.right='-375px'
+    }
+    let bar = document.querySelector('.fa-bars')
+    let wrap = document.querySelector('.nav .wraps')
+    bar.onclick= function(){
+      wrap.classList.toggle('display')  
+      
     }
 
     // 購物車
@@ -68,6 +75,7 @@
         }
         navs[that.id].className ='active'
         div[that.id].style.display='block'
+       
         }
       
     }
