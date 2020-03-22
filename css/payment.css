@@ -652,7 +652,7 @@ html,body{
     width: 100%;
     border: 1px solid #ddd;
     padding: 50px;
-    z-index: -1;
+    /* z-index: -1; */
     box-sizing: border-box;
     background-color: #fff;
     top: 150px;
@@ -695,7 +695,7 @@ html,body{
     width: 100%;
     border: 1px solid #ddd;
     padding: 60px;
-    z-index: -1;
+    /* z-index: -1; */
     box-sizing: border-box;
     background-color: #fff;
     top:150px;

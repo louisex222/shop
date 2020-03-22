@@ -469,41 +469,37 @@ html,body{
     background-color: #fff;
     border-radius: 5px;
 }
-
-.cart ul li{
+.cart ul .box{
     margin-bottom: 10px;
     display: flex;
-    justify-content: flex-end;
     position: relative;
-    padding: 7px 20px;
+    padding: 7px 0;
     box-sizing: border-box;
+    width: 100%;
+    flex-direction: column;
+    
+}
+.cart ul .box li{
+    width: 100%;
+    box-sizing: border-box;
+    display:flex;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
     align-items: center;
-
+    padding: 0 20px;
 }
-.cart ul li:nth-child(n+1):after{
-    content: '';
-    position: absolute;
-    width: 90%;
-    height: 0.5px;
-    background-color: #616263; 
-    bottom: 0;
-    text-align: center;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.3;
+.cart ul .box .name{
+    margin-right:10px;
 }
-.cart li input{
+.cart .box input{
     width: 10%;
     height: 30px;
     border-radius: 5px;
     outline: none;
     margin-right: 30px;
 }
-.cart li .name{
-   position: absolute;
-   left: 20px
-}
-.cart li .cancel{
+
+.cart .box .cancel{
     padding: 8px 12px;
     border:1px solid #616263;
     background-color: #b7b7b7;
@@ -513,10 +509,10 @@ html,body{
     border-radius: 5px;
     cursor: pointer;
 }
-.cart li .cancel:hover{
+.cart .box .cancel:hover{
     background-color: #ff4e00;
 }
-.cart  div{
+.cart  .sum{
     display:flex;
     margin-top: 20px;
     justify-content: space-between;

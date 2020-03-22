@@ -81,7 +81,7 @@
      let  obj = {}
      obj.addcart = function(id,name,count,price){
        for( let i in cart){
-          if( cart[i]===id){
+          if( cart[i]===name){
             cart[i].count++
             save()
             return
@@ -96,20 +96,8 @@
      obj.model = function(){
        return JSON.parse(localStorage.getItem('shopcart'))
      }
-     obj.total = function(){
-       let sum =0
-       for(let i in cart){
-         sum += cart[i].price *cart[i].count
-       }
-       return sum 
-     }
-     obj.del =function(id){
-       for(let i in cart){
-         if(cart[i].id ==id)
-         cart.splice(i,1)
-       }
-       save()
-     }
+    
+     
      return obj
    })()
    
@@ -117,11 +105,11 @@
    let table = document.querySelector('.wrap table')
    let basket = document.querySelector('.wrap .bigbox .basket')
    let ul = basket.querySelector('ul')
-   
+   let p = document.querySelector('.wrap p')
    function showlist(){
-     
      let local =shoplist.model()
      for(let i in local){
+      let number =  parseInt(i)+1
        let id = local[i].id
        let count = local[i].count
        let name = local[i].name
@@ -129,7 +117,7 @@
        let html =`
             
                 <td>${i}</td>
-                <td><img src="images/s1.jpg"></td>
+                <td><img src="images/s${number}.jpg"></td>
                 <td>
                     <div class="count">
                         <div class="minus" data-id="${id}"></div>
@@ -142,15 +130,17 @@
                 <td class="close">X</td>
                
        `
+       
+      
         
         let tr = document.createElement('tr')
         tr.dataset.id = id
         tr.innerHTML = html
         table.appendChild(tr)
         
+        
       }
      
-      
       delbtn()
       
       totalprice()
@@ -187,28 +177,37 @@
 
 
     }
-    let num =1
     
-   
+    
     let span= table.querySelectorAll('span')
     let minus = document.querySelectorAll('.minus')
      for(let i =0 ; i<minus.length ; i++){
        minus[i].onclick =function(e){
-         
+        let num = parseInt(span[i].textContent )
+        let local =shoplist.model()
         num-=1 
         span[i].innerText =num
-
-          
-        
+        value[i].innerText = num *local[i].price
+      
+        totalprice()
        }
      }
-     let plus = document.querySelectorAll('.plus') 
-     for(let i =0 ; i<plus.length ; i++){
-      plus[i].onclick =function(e){
-        num+=1 
-        span[i].innerText =num
+     
+     let plus = document.querySelectorAll('.plus')
+     let value = table.querySelectorAll('.price')
+     
 
+       for(let i =0 ; i<plus.length ; i++){
+        plus[i].onclick =function(e){
+          let num = parseInt(span[i].textContent )
+          let local =shoplist.model()
+          num+=1 
+          span[i].innerText =num
+          value[i].innerText = num *local[i].price
+ 
+          totalprice()
+        }
       }
-    }
+     
   
    

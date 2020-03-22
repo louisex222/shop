@@ -60,16 +60,16 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       ul.classList.toggle('display')  
       
     }
-    // 購物車
-    let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    let cart =document.querySelector('.cart')
-    let cartclose =cart.querySelector('.fa-times')
-    mycart.onclick=function(){
-      cart.style.display='flex'
-    }
-    cartclose.onclick=function(){
-      cart.style.display='none'
-    }
+    // // 購物車
+    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
+    // let cart =document.querySelector('.cart')
+    // let cartclose =cart.querySelector('.fa-times')
+    // mycart.onclick=function(){
+    //   cart.style.display='flex'
+    // }
+    // cartclose.onclick=function(){
+    //   cart.style.display='none'
+    // }
    
     
    

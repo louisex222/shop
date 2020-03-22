@@ -52,13 +52,13 @@
     }
     // 購物車
     let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    let cart =document.querySelector('.cart')
-    let cartclose =cart.querySelector('.fa-times')
+    let cartlist =document.querySelector('.cart')
+    let cartclose =cartlist.querySelector('.fa-times')
     mycart.onclick=function(){
-      cart.style.display='flex'
+      cartlist.style.display='flex'
     }
     cartclose.onclick=function(){
-      cart.style.display='none'
+      cartlist.style.display='none'
     }
    
     
@@ -67,25 +67,68 @@
    let cartPlus = document.querySelectorAll('.fa-cart-plus')
    let carts = document.querySelector('.cart ul')
    let li = carts.childNodes[1]
-   let local = JSON.parse(localStorage.getItem('local'))||[]
-   console.log(li)
    
-   function showlist(){
+   
+   let shoplist = (function(){
+    cart =[]
+    function Item(id,name,count,price){
+       this.id = id
+       this.name= name
+       this.price = price
+       this.count = count
+       
+    }
+   function save(){
+     localStorage.setItem('shopcart',JSON.stringify(cart))
+   }
+   function load(){
+     cart = JSON.parse(localStorage.getItem('shopcart'))
+     if ( localStorage.getItem('shopcart') !== null){
+        load()
+     }
+   }
+   let  obj = {}
+   obj.addcart = function(id,name,count,price){
+     for( let i in cart){
+        if( cart[i].name===name){
+          cart[i].count++
+          save()
+          return
+        }
+     }
+     let items = new Item(id,name,count,price)
+     cart.push(items)
+     save()
+   }
+  
+   obj.model = function(){
+     return JSON.parse(localStorage.getItem('shopcart'))
+   }
+ 
+   obj.del =function(id){
+     for(let i in cart){
+       if(cart[i].id ==id)
+       cart.splice(i,1)
+     }
+     save()
+   }
+   return obj
+ })()
+ 
+   function cartLocal(){
 
      for (let i=0 ;i<box.length;i++){
        
          cartPlus[i].onclick=function(){
            console.log(1)
-  
+             let count = 1
+             let id = [i]
              let name = box[i].querySelector('h4').innerText
              let price = box[i].querySelector('p').innerText
-             let items = { name: `${name}`,price:`${price}`}
-             local.push(items)
-             console.log(local)
-             window.localStorage.setItem('local',JSON.stringify(local))
+             shoplist.addcart(id,name,count,price)
              let html = `
              
-             <li id='${i}'>
+             <li id='${id}'>
                  <span class="name">${name}</span>
                  <input type="text" value='1'>
                  <span class="cancel" >X</span>
@@ -115,7 +158,7 @@
      }   
    }
      
-     showlist()
+     cartLocal()
    function totals(){
      let sum =0 
      let total= document.querySelector('.cart .total')

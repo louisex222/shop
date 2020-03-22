@@ -94,7 +94,7 @@
     let cartPlus = document.querySelectorAll('.fa-cart-plus')
     let carts = document.querySelector('.cart ul')
     let li = carts.childNodes[1]
-    // let local = JSON.parse(localStorage.getItem('local'))||[]
+    
     
 
     let shoplist = (function(){
@@ -118,7 +118,7 @@
       let  obj = {}
       obj.addcart = function(id,name,count,price){
         for( let i in cart){
-           if( cart[i]===id){
+           if( cart[i].name===name){
              cart[i].count++
              save()
              return
@@ -128,26 +128,11 @@
         cart.push(items)
         save()
       }
-      obj.cartCount = function(){
-        var count = 0;
-        var cart = JSON.parse(sessionStorage.getItem('shopcart'));
-        for(var i in cart){
-            count +=cart[i].count;
-            
-
-        }
-        return count;
-    };
+     
       obj.model = function(){
         return JSON.parse(localStorage.getItem('shopcart'))
       }
-      obj.total = function(){
-        let sum =0
-        for(let i in cart){
-          sum += cart[i].price *cart[i].count
-        }
-        return sum 
-      }
+    
       obj.del =function(id){
         for(let i in cart){
           if(cart[i].id ==id)
@@ -186,13 +171,13 @@
             let close = document.querySelectorAll('.cancel')
             for(let i=0 ; i< close.length; i++){
               close[i].onclick = function(){
-                let id = cart[i].id
-                shoplist.del(id)
+                
                 let parent = this.parentNode.parentNode;
                 let child = this.parentNode;
                 parent.removeChild(child)
                 document.querySelector('.total').innerHTML = '$'+'0'+'NTD'
                 totals()
+                
               }
             }
   
@@ -214,4 +199,6 @@
         
       }
     }
+    
+
     
