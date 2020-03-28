@@ -590,9 +590,9 @@ html,body{
     margin-bottom: 10px;
 }
 #wrap .wrap .mark{
-    min-width: 327px;
+    min-width: 381px;
     position: absolute;
-    height: 384px;
+    height: 447px;
     background-color: #fff;
     z-index: 10;
     opacity: 0;
