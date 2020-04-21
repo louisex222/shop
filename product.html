@@ -20,10 +20,10 @@
         </div>
         <div class="icon">
             <i class="fa fa-user"></i>
-            <div>
+            <!-- <div>
                 <h3>My Cart</h3>
                 <i class="fas fa-cart-arrow-down"></i>
-            </div>
+            </div> -->
         </div>
 </header>
     <label class="line"></label>
@@ -144,35 +144,7 @@
             </form>
         
     </div>
-    <div class="cart">
-        <i class="fas fa-times"></i>
-        <ul>
-            <li>
-                <span class="name">Opium (Grey)</span>
-                <input type="text" value="1">
-                <span class="cancel">X</span>
-                <span class="price">$650.00</span>
-            </li>
-            <li>
-                <span class="name">Opium (Grey)</span>
-                <input type="text" value="1">
-                <span class="cancel">X</span>
-                <span class="price">$650.00</span>
-            </li>
-            <li>
-                    <span class="name">Opium (Grey)</span>
-                    <input type="text" value="1">
-                    <span class="cancel">X</span>
-                    <span class="price">$650.00</span>
-            </li>
-            
-        </ul>
-        <div>
-            <h4>Subtotal :</h4>
-            <p class="total">$650.00 NTD</p>
-            <a href="checkout.html"><button> CHECK OUT</button></a>
-        </div>
-    </div>
+    
 <div id="banner">
     <div>
         <ul>
@@ -188,9 +160,9 @@
     <div id="wrap">
         <div class="bigbox1">
             <div class="wrap">
-                <div class="mark"></div>
+                <!-- <div class="mark"></div> -->
                 <img  class="first"src="images/d1.jpg" alt="">
-                <div class="float"></div>
+                <!-- <div class="float"></div> -->
             </div>
             <div class="box">
                 <img src="images/d1.jpg" alt="">
@@ -199,8 +171,8 @@
             </div>
         </div>
         <div class="bigbox2">
-            <h2>Irayz Butterfly Sunglasses</h2>
-            <p>$650</p>
+            <h2>Irayz Butterfly Sunglasses</h2>  
+            <p>650</p>
             <ul class="star">
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
@@ -213,21 +185,21 @@
                     <i>CHECK</i>
                 </form>
             </div>
-            <div class="box">
-                <label for="">Quality:</label>
-                <select name="quality" id="">
-                    <option value="5 Qty">5 Qty</option>
-                    <option value="6 Qty">6 Qty</option>
-                    <option value="7 Qty">7 Qty</option>
-                    <option value="10 Qty">10 Qty</option>
+             <div class="box">
+                <label for="">Count:</label>
+                <select name="quality" id="select">
+                    <option value="1 ">1</option>
+                    <option value="2 ">2</option>
+                    <option value="3 ">3</option>
+                  
                 </select>
-            </div>
+            </div> 
             <div class="box">
                 <label for="">Types:</label>
-                <div>
-                    <input type="radio"><span>Irayz Butterfly (Black)</span>
-                    <input type="radio"><span>Irayz Butterfly (Grey)</span>
-                    <input type="radio"><span>Irayz Butterfly (Blue)</span>
+                <div class="choose">
+                    <input type="radio" name="product" value="Irayz Butterfly (Black)"><span>Irayz Butterfly (Black)</span>
+                    <input type="radio" name="product" value="Irayz Butterfly (Grey)"><span>Irayz Butterfly (Grey)</span>
+                    <input type="radio" name="product" value="Irayz Butterfly (Blue)"><span>Irayz Butterfly (Blue)</span>
                 </div>
                 <a href="checkout.html"><button>ADD TO CART</button></a>
             </div>

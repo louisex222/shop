@@ -49,16 +49,16 @@
       ul.classList.toggle('display')  
       
     }
-    // 購物車
-    let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    let cart =document.querySelector('.cart')
-    let cartclose =cart.querySelector('.fa-times')
-    mycart.onclick=function(){
-      cart.style.display='flex'
-    }
-    cartclose.onclick=function(){
-      cart.style.display='none'
-    }
+    // // 購物車
+    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
+    // let cart =document.querySelector('.cart')
+    // let cartclose =cart.querySelector('.fa-times')
+    // mycart.onclick=function(){
+    //   cart.style.display='flex'
+    // }
+    // cartclose.onclick=function(){
+    //   cart.style.display='none'
+    // }
     // 放大鏡
     let bigwrap = document.querySelector('#wrap')
     let img =  bigwrap.querySelector('.bigimg')
@@ -67,36 +67,112 @@
     let mark = wrap.querySelector('.mark')
     let first = wrap.querySelector('.first')
     let float = wrap.querySelector('.float')
-    mark.onmousemove = function(e){
-        let left =  e.clientX - bigwrap.offsetLeft -mark.offsetLeft- float.offsetWidth/2
-        let top =   e.clientY  -bigwrap.offsetTop- mark.offsetTop - float.offsetHeight/2 +document.body.scrollTop
-        let scrollTop = document.documentElement.scrollTop
-        if(left < 0){
-            left= 0
-        }else if(  left > mark.offsetWidth -float.offsetWidth){
-            left =mark.offsetWidth -float.offsetWidth
-        }
-        if(top < 0){
-            top = 0
-        }else if(top > mark.offsetHeight -float.offsetHeight){
-            top = mark.offsetHeight -float.offsetHeight
-        }
-        float.style.display ='block'
-        float.style.left=`${left}px`
-        float.style.top =`${top}px`
+    console.log(first.src)
+    // mark.onmousemove = function(e){
+    //     let left =  e.clientX - bigwrap.offsetLeft -mark.offsetLeft- float.offsetWidth/2
+    //     let top =   e.clientY  -bigwrap.offsetTop- mark.offsetTop - float.offsetHeight/2 +document.body.scrollTop
+    //     let scrollTop = document.documentElement.scrollTop
+    //     if(left < 0){
+    //         left= 0
+    //     }else if(  left > mark.offsetWidth -float.offsetWidth){
+    //         left =mark.offsetWidth -float.offsetWidth
+    //     }
+    //     if(top < 0){
+    //         top = 0
+    //     }else if(top > mark.offsetHeight -float.offsetHeight){
+    //         top = mark.offsetHeight -float.offsetHeight
+    //     }
+    //     float.style.display ='block'
+    //     float.style.left=`${left}px`
+    //     float.style.top =`${top}px`
         
-        let percentX =  left/(mark.offsetWidth -float.offsetWidth)
-        let percentY = top /(mark.offsetHeight -float.offsetHeight)
+    //     let percentX =  left/(mark.offsetWidth -float.offsetWidth)
+    //     let percentY = top /(mark.offsetHeight -float.offsetHeight)
        
-        img.style.display='block'
-        bigimg.style.left = -percentX *(bigimg.offsetWidth-img.offsetWidth)+'px'
-        bigimg.style.top = -percentY*(bigimg.offsetHeight-img.offsetHeight)-scrollTop+'px'
+    //     img.style.display='block'
+    //     bigimg.style.left = -percentX *(bigimg.offsetWidth-img.offsetWidth)+'px'
+    //     bigimg.style.top = -percentY*(bigimg.offsetHeight-img.offsetHeight)-scrollTop+'px'
         
+    // }
+    //     mark.onmouseleave = function(){
+    //         float.style.display='none'
+    //         img.style.display= 'none'
+    //     }
+   
+    let  imgPoint = bigwrap.querySelectorAll('.box img')
+    console.log(imgPoint)
+    function changImg(e){
+     first.src = this.src
+     bigimg.src = this.src
     }
-        mark.onmouseleave = function(){
-            float.style.display='none'
-            img.style.display= 'none'
-        }
+    imgPoint.forEach(img =>img.addEventListener('click',changImg))
    
+   
+
+    let shoplist = (function(){
+      cart =[]
+      function Item(id,name,count,price){
+         this.id = id
+         this.name= name
+         this.price = price
+         this.count = count
+         
+      }
+     function save(){
+       localStorage.setItem('shopcart',JSON.stringify(cart))
+     }
+     function load(){
+       cart = JSON.parse(localStorage.getItem('shopcart'))
+       if ( localStorage.getItem('shopcart') !== null){
+          load()
+       }
+     }
+     let  obj = {}
+     obj.addcart = function(id,name,count,price){
+       for( let i in cart){
+          if( cart[i].name===name){
+            cart[i].count++
+            save()
+            return
+          }
+       }
+       let items = new Item(id,name,count,price)
+       cart.push(items)
+       save()
+     }
     
+     obj.model = function(){
+       return JSON.parse(localStorage.getItem('shopcart'))
+     }
    
+     obj.del =function(id){
+       for(let i in cart){
+         if(cart[i].id ==id)
+         cart.splice(i,1)
+       }
+       save()
+     }
+     return obj
+   })()
+
+   let btn = bigwrap.querySelector('a')
+   var radio = document.getElementsByName("product")
+   function addCart(){
+
+      let id = this.id
+      let name 
+      let select = bigwrap.querySelector('#select')
+      var index= select.selectedIndex
+      let count = select.options[index].innerText
+      let price = bigwrap.querySelector('p').innerText
+      for(var i=0;i< radio.length;i++){
+        if(radio[i].checked){
+           name = radio[i].value
+          }
+        }
+      shoplist.addcart(id,name,count,price)
+      
+      
+    }
+    btn.addEventListener('click',addCart)
+    

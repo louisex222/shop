@@ -267,7 +267,7 @@ html,body{
     width: 100vw;
     height: 100vh;
     background-color: #000;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 10;
     display: flex;
@@ -642,9 +642,13 @@ html,body{
 }
 #wrap .bigbox2 .star li{
     margin-right: 10px;
-    color: #999;
+    /* color: #999; */
     margin-bottom: 20px;
 }
+#wrap .bigbox2 .star li:nth-child(1), #wrap .bigbox2 .star li:nth-child(2){
+    color: #FFF307;
+}
+
 #wrap .bigbox2 h3{
     color: #545454;
     font-size: 0.9em;
@@ -713,6 +717,11 @@ html,body{
     border:none;
     outline: none;
     margin-bottom: 20px;
+    cursor: pointer;
+}
+#wrap .bigbox2 .box button:hover{
+    background-color: #ff4e00;
+    color:　#fff;
 }
 #wrap .bigbox2 .icon {
     display: flex;

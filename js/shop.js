@@ -51,22 +51,22 @@
       
     }
     // 購物車
-    let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    let cartlist =document.querySelector('.cart')
-    let cartclose =cartlist.querySelector('.fa-times')
-    mycart.onclick=function(){
-      cartlist.style.display='flex'
-    }
-    cartclose.onclick=function(){
-      cartlist.style.display='none'
-    }
+    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
+    // let cartlist =document.querySelector('.cart')
+    // let cartclose =cartlist.querySelector('.fa-times')
+    // mycart.onclick=function(){
+    //   cartlist.style.display='flex'
+    // }
+    // cartclose.onclick=function(){
+    //   cartlist.style.display='none'
+    // }
    
     
    // 商品增加至購物車
    let box = document.querySelectorAll('#content .box')
    let cartPlus = document.querySelectorAll('.fa-cart-plus')
-   let carts = document.querySelector('.cart ul')
-   let li = carts.childNodes[1]
+  //  let carts = document.querySelector('.cart ul')
+  //  let li = carts.childNodes[1]
    
    
    let shoplist = (function(){
@@ -118,40 +118,50 @@
    function cartLocal(){
 
      for (let i=0 ;i<box.length;i++){
-       
          cartPlus[i].onclick=function(){
-           console.log(1)
-             let count = 1
-             let id = [i]
-             let name = box[i].querySelector('h4').innerText
-             let price = box[i].querySelector('p').innerText
-             shoplist.addcart(id,name,count,price)
-             let html = `
+         let count = 1
+         let id = [i]
+         let name = box[i].querySelector('h4').innerText
+         let price = box[i].querySelector('p').innerText
+         shoplist.addcart(id,name,count,price)
+         
+            //  let html = `
              
-             <li id='${id}'>
-                 <span class="name">${name}</span>
-                 <input type="text" value='1'>
-                 <span class="cancel" >X</span>
-                 <span class="price">${price}</span>
-             </li>
-             `
+            //  <li id='${id}'>
+            //      <span class="name">${name}</span>
+            //      <input type="text" value='1'>
+            //      <span class="cancel" >X</span>
+            //      <span class="price">${price}</span>
+            //  </li>
+            //  `
            
            
-           li.innerHTML += html
-           carts.appendChild(li)
-           totals()
+          //  li.innerHTML += html
+          //  carts.appendChild(li)
+          //  totals()
    
-           let close = document.querySelectorAll('.cancel')
-           for(let i=0 ; i< close.length; i++){
-             close[i].onclick = function(){
-               let parent = this.parentNode.parentNode;
-               let child = this.parentNode;
-               parent.removeChild(child)
-               document.querySelector('.total').innerHTML = '$'+'0'+'NTD'
-               totals()
-             }
-           }
-  
+          //  let close = document.querySelectorAll('.cancel')
+          //  for(let i=0 ; i< close.length; i++){
+          //    close[i].onclick = function(){
+          //      let parent = this.parentNode.parentNode;
+          //      let child = this.parentNode;
+          //      parent.removeChild(child)
+          //      document.querySelector('.total').innerHTML = '$'+'0'+'NTD'
+          //      totals()
+          //    }
+          //  }
+          let mycart = document.querySelector('.icon a')
+          let local = shoplist.model()
+          function myCart(){
+            let item =0
+            for(i in local){
+              item += local[i].count
+              
+              console.log((item))
+            }
+            mycart.setAttribute('data-text',item)
+        }
+        myCart()
          }
   
   
@@ -159,13 +169,22 @@
    }
      
      cartLocal()
-   function totals(){
-     let sum =0 
-     let total= document.querySelector('.cart .total')
-     let price= document.querySelectorAll('.price')
-     for (let i=0 ;i< price.length; i++){
-       sum += parseInt(price[i].innerText)
-         total.innerHTML = ` $${sum} NTD`
+  //  function totals(){
+  //    let sum =0 
+  //    let total= document.querySelector('.cart .total')
+  //    let price= document.querySelectorAll('.price')
+  //    for (let i=0 ;i< price.length; i++){
+  //      sum += parseInt(price[i].innerText)
+  //        total.innerHTML = ` $${sum} NTD`
        
-     }
-   }
+  //    }
+  //  }
+  let local = shoplist.model()
+    let mycart = document.querySelector('.icon a')
+      let item =0
+      for(i in local){
+        item += local[i].count
+        
+        console.log((item))
+      }
+      mycart.setAttribute('data-text',item)

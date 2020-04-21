@@ -263,9 +263,9 @@ html,body{
     width: 100vw;
     height: 100vh;
     background-color: #000;
-    position: absolute;
+    position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 20;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,6 +274,7 @@ html,body{
     transform: translateX(-50%);
     animation: open 0.5s linear forwards;
     display:none;
+    
 }
 @keyframes open {
     0%{
@@ -317,6 +318,7 @@ html,body{
     opacity: 0;
     animation: show 1s linear  forwards;
     animation-delay: 1s; 
+    padding: 0;
 }
 @keyframes show{
     0%{
@@ -378,7 +380,7 @@ html,body{
 .login i{
     font-size: 15px;
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 20px 10px 10px;
     border: 1px solid #fff;
     margin-top: 30px;
     border-radius: 5px;
@@ -569,7 +571,7 @@ html,body{
     max-width:50%;
     margin:  0 auto;
     position: relative;
-    margin-bottom: 600px;
+    
 }
 .wrap h2{
     font-size: 45px;
@@ -658,6 +660,13 @@ html,body{
     top: 150px;
     display: none;
 }
+.wrap .box2 .tpfield {
+    height: 40px;
+    width: 300px;
+    border: 1px solid gray;
+    margin: 5px 0;
+    padding: 5px;
+}
 .wrap .box2 form{
     display:flex;
     flex-direction: column;
@@ -743,6 +752,38 @@ html,body{
     background-color: #ff4e00;
 
 }
+.detail {
+    width: 100%;
+    padding:  20px 30px;  
+}
+.detail h4{
+    color: #888;
+    font-size: 18px;
+    font-weight: 400;
+    word-spacing: 3px;
+    margin-bottom: 10px;
+}
+.detail form{
+    display:flex;
+    flex-direction: column;
+    
+}
+.detail form label{
+    letter-spacing: 1px;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+.detail form div{
+    outline:none;
+    border:1px solid #e7e7e7;
+    margin-bottom: 20px;
+    padding: 10px 0 10px 10px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+
+
+
 /* footer */
 #footer{
     display: flex;
@@ -949,4 +990,16 @@ html,body{
         padding: 30px;
     }
     
+}
+
+ /* 第三方支付 */
+form {
+    padding: 40px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+#submit-button{
+    background-color: #ff4e00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
 }

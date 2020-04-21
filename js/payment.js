@@ -49,16 +49,7 @@
       
     }
 
-    // // 購物車
-    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    // let cart =document.querySelector('.cart')
-    // let cartclose =cart.querySelector('.fa-times')
-    // mycart.onclick=function(){
-    //   cart.style.display='flex'
-    // }
-    // cartclose.onclick=function(){
-    //   cart.style.display='none'
-    // }
+   
     
     // tab
     let navs = document.querySelectorAll('.wrap li')
@@ -67,18 +58,105 @@
     for(let i =0 ;i<navs.length; i++){
       navs[i].id=i
       navs[i].onclick=function(e){
-        let that =this
+        
         for(let j=0 ;j<navs.length;j++){
           navs[j].className=''
           div[j].style.display='none'
           
         }
-        navs[that.id].className ='active'
-        div[that.id].style.display='block'
+        navs[this.id].className ='active'
+        div[this.id].style.display='block'
        
         }
       
     }
 
+    let shoplist = (function(){
+      cart =[]
+      function Item(id,name,count,price){
+         this.id = id
+         this.name= name
+         this.price = price
+         this.count = count
+         
+      }
+     function save(){
+       localStorage.setItem('shopcart',JSON.stringify(cart))
+     }
+     function load(){
+       cart = JSON.parse(localStorage.getItem('shopcart'))
+       if ( localStorage.getItem('shopcart') !== null){
+          load()
+       }
+     }
+     let  obj = {}
+     obj.addcart = function(id,name,count,price){
+       for( let i in cart){
+          if( cart[i]===name){
+            cart[i].count++
+            save()
+            return
+          }
+       }
+       let items = new Item(id,name,count,price)
+       cart.push(items)
+       save()
+     }
     
-   
+ 
+     obj.model = function(){
+       return JSON.parse(localStorage.getItem('shopcart'))
+     }
+    
+     
+     return obj
+   })()
+    // 第三方支付
+    TPDirect.setupSDK(11327, 'app_whdEWBH8e8Lzy4N6BysVRRMILYORF6UxXbiOFsICkz0J9j1C0JUlCHv1tVJC','sandbox')
+    TPDirect.card.setup('#cardview-container')
+
+    var submitButton = document.querySelector('#submit-button')
+    var cardViewContainer = document.querySelector('#cardview-container')
+    
+
+    function onClick() {
+        TPDirect.card.getPrime(function (result) {
+            if (result.status !== 0) {
+                console.log('getPrime 錯誤')
+                return
+            }
+            alert('getPrime 成功')
+            var prime = result.card.prime
+            document.querySelector('#result1').innerHTML = JSON.stringify(result, null, 4)
+
+            
+        })
+    }
+    
+    let details = JSON.parse(localStorage.getItem('details')) ||[]
+    let detail = document.querySelector('.detail')
+    console.log(details)
+    function payList(){
+      for( let i in details){
+         let name = details[i].name
+         let mobile = details[i].mobileNumber
+         let landMark = details[i].landMark
+         let city = details[i].city
+         let address = details[i].address
+         let  html = ` <form action="">
+                        <label for="">Full name:</label>
+                        <div type="text" >${name}</div>
+                        <label for="">Mobile number:</label>
+                        <div type="text" >${mobile}</div>
+                        <label for="">Landmark:</label>
+                        <div type="text" >${landMark}</div>
+                        <label for="">Town/City</label>
+                        <div type="text" >${city}</div>
+                        <label for="">Address type</label>
+                        <div name="address" id="address">${address}</div>
+                      </form>`
+
+        detail.innerHTML = html
+      }
+    }
+    payList()

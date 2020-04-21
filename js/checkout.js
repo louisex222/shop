@@ -48,16 +48,16 @@
       wrap.classList.toggle('display')  
       
     }
-    // 購物車
-    let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    let cartlist =document.querySelector('.cart')
-    let cartclose =cartlist.querySelector('.fa-times')
-    mycart.onclick=function(){
-      cartlist.style.display='flex'
-    }
-    cartclose.onclick=function(){
-      cartlist.style.display='none'
-    }
+    // // 購物車
+    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
+    // let cartlist =document.querySelector('.cart')
+    // let cartclose =cartlist.querySelector('.fa-times')
+    // mycart.onclick=function(){
+    //   cartlist.style.display='flex'
+    // }
+    // cartclose.onclick=function(){
+    //   cartlist.style.display='none'
+    // }
     
     // 添加清單
     let shoplist = (function(){
@@ -106,6 +106,7 @@
    let basket = document.querySelector('.wrap .bigbox .basket')
    let ul = basket.querySelector('ul')
    let p = document.querySelector('.wrap p')
+   let local =shoplist.model()
    function showlist(){
      let local =shoplist.model()
      for(let i in local){
@@ -131,83 +132,112 @@
                
        `
        
-      
-        
         let tr = document.createElement('tr')
         tr.dataset.id = id
         tr.innerHTML = html
         table.appendChild(tr)
         
         
+        
       }
-     
       delbtn()
-      
       totalprice()
     }
-    showlist()
+    
 
-   
     function totalprice(){
-      let sum=0
+      let sum = 0
       let total = basket.querySelector('span')
       let price = table.querySelectorAll('.price')
+      total.innerHTML =''
       for(let i=0 ;i< price.length; i++){
         sum += parseInt(price[i].innerText)
-        
-        total.innerHTML = ` $${sum}`
+        total.innerText = `$${sum}` 
       }
       
+      
     }
+  
     
     function delbtn(){
-      
       let close = document.querySelectorAll('.wrap .close')
+      let total = basket.querySelector('span')
+      
       for(let i in close){
-
-        close[i].onclick = function(e){  
+        close[i].onclick = function(){  
             
           let parent =  this.parentNode.parentNode
           let child = this.parentNode
           parent.removeChild(child)
+
+          local.splice(i,1)
+          localStorage.setItem('shopcart',JSON.stringify(local))
+        
           totalprice()
           
         }
       }
 
-
     }
     
+    showlist()
     
-    let span= table.querySelectorAll('span')
-    let minus = document.querySelectorAll('.minus')
-     for(let i =0 ; i<minus.length ; i++){
-       minus[i].onclick =function(e){
-        let num = parseInt(span[i].textContent )
-        let local =shoplist.model()
-        num-=1 
-        span[i].innerText =num
-        value[i].innerText = num *local[i].price
-      
-        totalprice()
-       }
-     }
-     
-     let plus = document.querySelectorAll('.plus')
-     let value = table.querySelectorAll('.price')
-     
+    {
 
-       for(let i =0 ; i<plus.length ; i++){
+      let span= table.querySelectorAll('span')
+      let minus = document.querySelectorAll('.minus')
+       for(let i =0 ; i<minus.length ; i++){
+         minus[i].onclick =function(e){
+          let num = parseInt(span[i].textContent )
+          let local =shoplist.model()
+          num-=1 
+          span[i].innerText =num
+          value[i].innerText = num *local[i].price
+        
+          totalprice()
+         }
+       }
+       
+    
+    
+      let plus = document.querySelectorAll('.plus')
+      let value = table.querySelectorAll('.price')
+      
+      
+      for(let i =0 ; i<plus.length ; i++){
         plus[i].onclick =function(e){
           let num = parseInt(span[i].textContent )
           let local =shoplist.model()
           num+=1 
           span[i].innerText =num
           value[i].innerText = num *local[i].price
- 
+          
           totalprice()
         }
       }
-     
-  
-   
+    }
+
+    let details = JSON.parse(localStorage.getItem('details')) ||[]
+    let  name = document.querySelector('.detail form').children[1]
+    let  mobileNumber = document.querySelector('.detail form').children[3]
+    let  landMark = document.querySelector('.detail form').children[5]
+    let  city = document.querySelector('.detail form').children[7]
+    let  address = document.querySelector('.detail form').children[9]
+
+    console.log(name,mobileNumber,landMark,city,address)
+    let customList = function(name,mobileNumber,landMark,city,address){
+      this.name = name,
+      this.mobileNumber= mobileNumber,
+      this.landMark = landMark,
+      this.city =city,
+      this.address = address
+      console.log(this)
+    }
+    function makeDetail(e){
+      let details =[]
+      let custom = new customList(name.value,mobileNumber.value,landMark.value,city.value,address.value)
+      details.push(custom)
+      localStorage.setItem('details',JSON.stringify(details))
+    }
+    
+    document.querySelector('form a').addEventListener('click',makeDetail)

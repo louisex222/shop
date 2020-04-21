@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/payment.css">
     
 </head>
@@ -175,51 +176,27 @@
             <div class="wrap">
                 <h2>Payment</h2>
                 <ul>
-                    <li class="active">CASH ON DELIVERY</li>
-                    <li>CREDIT/DEBIT</li>
-                    <li>NET BANKING</li>
+                    <li class="active">CREDIT/DEBIT</li>
                 </ul>
-                <div class="box box1" >
-                    <h4>COD</h4>
-                    <input type="checkbox"> <span>We also accept Credit/Debit card on delivery. Please Check with the agent.</span>
-                </div>
-                <div class="box box2" >
+                <div class="detail">
                     <form action="">
-                        <label for="">Name on Card</label>
-                        <input type="text" placeholder="John Smith">
-                        <label for="">Card Number</label>
-                        <input type="password" placeholder="**** **** **** ****">
-                        <label for="">CVV</label>
-                        <input type="password" placeholder="***">
-                        <label for="">Expiration Date</label>
-                        <input type="text" placeholder="MM / YY">
-                        <button>MAKE A PAYMENT</button>
+                        <label for="">Full name:</label>
+                        <div type="text" placeholder="Full name"></div>
+                        <label for="">Mobile number:</label>
+                        <div type="text" placeholder="Mobile number"></div>
+                        <label for="">Landmark:</label>
+                        <div type="text" placeholder="Landmark"></div>
+                        <label for="">Town/City</label>
+                        <div type="text" placeholder="Town/City"></div>
+                        <label for="">Address type</label>
+                        <div name="address" id="address"></div>
                     </form>
                 </div>
-                <div class=" box box3" >
-                    <form action="">
-                        <label for="">Select From Popular Banks</label>
-                        <div>
-                            <div>
-
-                                <input type="radio"> <span>Syndicate Bank</span>
-                            </div>
-                            <div>
-
-                                <input type="radio"> <span>Bank fo Baroda</span>
-                            </div>
-                            <div>
-
-                                <input type="radio"> <span>Canara Bank</span>
-                            </div>
-                        </div>
-                        <label for="">Or select other bank</label>
-                        <select name="bank" id="bank">
-                                <option value="ALB-NA">Allahabad Bank NetBanking</option>
-                                <option value="BBC-NA">Bank of Baroda Corporate NetBanking</option>
-                        </select>
-                        <button>PAY NOW</button>
-                    </form>
+                <div style="width: 480px; margin: 20px auto; border: 1px solid #e7e7e7 ;padding: 20px 40px;box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); ">
+                    <label >CardView</label>
+                    <div id="cardview-container"></div>
+                    <button id="submit-button" onclick="onClick()">Get Prime</button>
+                    
                 </div>
             </div>
         </section>
@@ -278,6 +255,11 @@
                     <p>© 2020 Goggles. All Rights Reserved | Design by <span>Louis</span></p>
                 </div>
             </footer> 
+            
+            <script src="https://js.tappaysdk.com/tpdirect/v5.1.0"></script>
             <script src="js/payment.js"></script>
+            
+            
+            
 </body>
 </html>
