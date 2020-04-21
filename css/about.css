@@ -436,7 +436,6 @@ html,body{
     font-size: 30px;
     padding: 5px;
     font-weight: 100;
-    height: 30px;
     border-radius: 10px;
     border: 1px solid #dde0e6;
     color: rgba(0,0,0, 0.2);
@@ -849,7 +848,17 @@ html,body{
     font-size: 12px;
     letter-spacing: 3px;
 }
-
+#top{
+    width: 43px;
+    height: 43px;
+    background: url(/images/prev.png);
+    position: fixed;
+    right: 50px;
+    bottom: 400px;
+    transform: rotate(90deg);
+    display: none;
+    cursor: pointer;
+}
 /* footer */
 #footer{
     display: flex;

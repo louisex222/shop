@@ -76,5 +76,29 @@
        document.querySelector('.sec').innerText = `${seconds}`
      },1000)
  
-     
+     //  至頂
+    let toTop = document.querySelector('#top')
+    let timers
+    let begin = 0
+    let end =0 
+    function scroll(){
+      let scrolltop = document.body.scrollTop
+      scrolltop > 1500 ? toTop.style.display = 'block':toTop.style.display='none'
+      begin = scrolltop
+      toTop.onclick = function(){
+        
+        clearInterval(timers)
+        
+        timers = setInterval(function(){
+          begin = begin + (end-begin)/50
+          console.log(begin,end,scrolltop)
+          document.body.scrollTop = begin
+        if(parseInt(begin)==end){
+            clearInterval(timers)
+        }    
+        },10)
+      }
+      console.log(scrolltop)
+    }
+    window.addEventListener('scroll',scroll,true)
     

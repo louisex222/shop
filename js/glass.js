@@ -144,30 +144,7 @@
               let count = 1
               
               shoplist.addcart(id,name,count,price)
-              // let html = `
               
-              // <li ${id}>
-              //     <span class="name">${name}</span>
-              //     <input type="text" value='1'>
-              //     <span class="cancel" >X</span>
-              //     <span class="price">${price}</span>
-              // </li>
-              // `
-            
-            // totals()
-    
-            // let close = document.querySelectorAll('.cancel')
-            // for(let i=0 ; i< close.length; i++){
-            //   close[i].onclick = function(){
-                
-            //     let parent = this.parentNode.parentNode;
-            //     let child = this.parentNode;
-            //     parent.removeChild(child)
-            //     document.querySelector('.total').innerHTML = '$'+'0'+'NTD'
-            //     totals()
-                
-            //   }
-            // }
             let mycart = document.querySelector('.icon a')
             let local = shoplist.model()
             function  myCart(cart){
@@ -187,16 +164,7 @@
     }
     cartLocal()   
    
-    // function totals(){
-    //   let sum =0 
-    //   let total= document.querySelector('.cart .total')
-    //   let price= document.querySelectorAll('.price')
-    //   for (let i=0 ;i< price.length; i++){
-    //     sum += parseInt(price[i].innerText)
-    //       total.innerHTML = ` $${sum} NTD`
-        
-    //   }
-    // }
+  
     
 
     let timeline = new TimelineMax({
@@ -228,7 +196,28 @@
       }
     mycart.setAttribute('data-text',item)
   
-    
-
-  
-    
+    //  至頂
+    let toTop = document.querySelector('#top')
+    let timers
+    let begin = 0
+    let end =0 
+    function scroll(){
+      let scrolltop = document.body.scrollTop
+      scrolltop > 1500 ? toTop.style.display = 'block':toTop.style.display='none'
+      begin = scrolltop
+      toTop.onclick = function(){
+        
+        clearInterval(timers)
+        
+        timers = setInterval(function(){
+          begin = begin + (end-begin)/50
+          console.log(begin,end,scrolltop)
+          document.body.scrollTop = begin
+        if(parseInt(begin)==end){
+            clearInterval(timers)
+        }    
+        },10)
+      }
+      console.log(scrolltop)
+    }
+    window.addEventListener('scroll',scroll,true)
