@@ -79,21 +79,12 @@
       
     }
     // // 購物車顯示
-    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    // let cartlist =document.querySelector('.cart')
-    // let cartclose =cartlist.querySelector('.fa-times')
-    // mycart.onclick=function(){
-    //   cartlist.style.display='flex'
-    // }
-    // cartclose.onclick=function(){
-    //   cartlist.style.display='none'
-    // }
+    
    
     // 商品增加至購物車
     let box = document.querySelectorAll('#section .box')
     let cartPlus = document.querySelectorAll('.fa-cart-plus')
-    // let carts = document.querySelector('.cart ul')
-    // let li = carts.childNodes[1]
+    
     
     
 
