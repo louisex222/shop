@@ -150,7 +150,7 @@ html,body{
     border-bottom: 0;
     
 }
-.nav ul li:nth-child(4) a::after{
+/* .nav ul li:nth-child(4) a::after{
     content: '';
     position: absolute;
     right: 0;
@@ -162,7 +162,7 @@ html,body{
     border-top: 5px solid;
     border-left: 5px solid transparent;
     border-bottom: 0;
-}
+} */
 .nav .fa-bars{
     font-size: 30px;
     padding: 5px;

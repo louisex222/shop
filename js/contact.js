@@ -22,12 +22,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     bigbox1.onmouseleave =function(){
       bigbox1.style.display='none'
     }
-    shop.onmouseover=function(){
-      bigbox2.style.display='flex'
-    }
-    bigbox2.onmouseleave =function(){
-      bigbox2.style.display='none'
-    }
+    // shop.onmouseover=function(){
+    //   bigbox2.style.display='flex'
+    // }
+    // bigbox2.onmouseleave =function(){
+    //   bigbox2.style.display='none'
+    // }
     
     // 搜尋
     let searchclick = document.querySelector('.nav .fa-search')

@@ -12,12 +12,12 @@
     bigbox1.onmouseleave =function(){
       bigbox1.style.display='none'
     }
-    shop.onmouseover=function(){
-      bigbox2.style.display='flex'
-    }
-    bigbox2.onmouseleave =function(){
-      bigbox2.style.display='none'
-    }
+    // shop.onmouseover=function(){
+    //   bigbox2.style.display='flex'
+    // }
+    // bigbox2.onmouseleave =function(){
+    //   bigbox2.style.display='none'
+    // }
     
     // 搜尋
     let searchclick = document.querySelector('.nav .fa-search')
@@ -125,31 +125,7 @@
          let price = box[i].querySelector('p').innerText
          shoplist.addcart(id,name,count,price)
          
-            //  let html = `
-             
-            //  <li id='${id}'>
-            //      <span class="name">${name}</span>
-            //      <input type="text" value='1'>
-            //      <span class="cancel" >X</span>
-            //      <span class="price">${price}</span>
-            //  </li>
-            //  `
-           
-           
-          //  li.innerHTML += html
-          //  carts.appendChild(li)
-          //  totals()
-   
-          //  let close = document.querySelectorAll('.cancel')
-          //  for(let i=0 ; i< close.length; i++){
-          //    close[i].onclick = function(){
-          //      let parent = this.parentNode.parentNode;
-          //      let child = this.parentNode;
-          //      parent.removeChild(child)
-          //      document.querySelector('.total').innerHTML = '$'+'0'+'NTD'
-          //      totals()
-          //    }
-          //  }
+          
           let mycart = document.querySelector('.icon a')
           let local = shoplist.model()
           function myCart(){
@@ -169,16 +145,7 @@
    }
      
      cartLocal()
-  //  function totals(){
-  //    let sum =0 
-  //    let total= document.querySelector('.cart .total')
-  //    let price= document.querySelectorAll('.price')
-  //    for (let i=0 ;i< price.length; i++){
-  //      sum += parseInt(price[i].innerText)
-  //        total.innerHTML = ` $${sum} NTD`
-       
-  //    }
-  //  }
+
   let local = shoplist.model()
     let mycart = document.querySelector('.icon a')
       let item =0
@@ -204,13 +171,15 @@
         
         timers = setInterval(function(){
           begin = begin + (end-begin)/50
-          console.log(begin,end,scrolltop)
+          
           document.body.scrollTop = begin
         if(parseInt(begin)==end){
             clearInterval(timers)
         }    
         },10)
       }
-      console.log(scrolltop)
+      
     }
     window.addEventListener('scroll',scroll,true)
+
+   
