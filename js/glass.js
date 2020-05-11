@@ -16,7 +16,7 @@
     // 時間的倒數 至四月一日
     let timer = null  
     timer = setInterval(function(){
-      let then = new Date('April 1, 2020 00:00:00').getTime()
+      let then = new Date('June 24, 2020 00:00:00').getTime()
       let now = new Date().getTime()
       let count = Math.round((then-now)/1000)
       let seconds = Math.floor(count%60)
