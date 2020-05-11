@@ -182,4 +182,54 @@
     }
     window.addEventListener('scroll',scroll,true)
 
-   
+    let datas =[{product:'Farenheit',price:'575.00',img:'images/s1.jpg'},
+    {product:'Opium',price:'325.00',img:'images/s2.jpg'},
+    {product:'Kenneth Cole',price:'575.00',img:'images/s3.jpg'},
+    {product:'Farenheit Oval',price:'325.00',img:'images/s4.jpg'},
+    {product:'Aislin Wayfarer',price:'775.00',img:'images/s5.jpg'},
+    {product:'Azmani Round',price:'725.00',img:'images/s6.jpg'},
+    {product:'Farenheit Wayfarer',price:'475.00',img:'images/s7.jpg'},
+    {product:'Fossil Wayfarer',price:'825.00',img:'images/s8.jpg'}]
+    let input = document.querySelector('.bigbox1 input')
+    
+    
+    
+
+    function searchHandler(word,datas){
+      return  datas.filter(text =>{
+        let regex = new RegExp(word,'gi')
+        
+       return text.product.match(regex) 
+      })
+      
+
+    }
+    function list(){
+      let words = searchHandler(this.value,datas)
+      let html = words.map((list,i)=>{
+       
+        return `
+        <div class="box">
+          <a class="view" href="product.html">Quick View</a>
+          <img src="${list.img}" alt="">
+          <a class="index${i}" href="single.html">New</a>
+        <div class="item">
+            <h4>${list.product}</h4>
+            <p>${list.price}</p>
+            <ul>
+                <li> <i class="fa fa-star" aria-hidden="true"></i></li>
+                <li> <i class="fa fa-star" aria-hidden="true"></i></li>
+                <li> <i class="fa fa-star" aria-hidden="true"></i></li>
+                <li> <i class="fa fa-star" aria-hidden="true"></i></li>
+            </ul>
+            <i class="fa fa-cart-plus"></i>
+        </div>
+</div>
+        `
+      })
+      document.querySelector('#content').innerHTML = html
+      console.log('true')
+    }
+    
+    input.addEventListener('keyup',list)
+    
