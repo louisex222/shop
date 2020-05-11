@@ -212,7 +212,7 @@
         <div class="box">
           <a class="view" href="product.html">Quick View</a>
           <img src="${list.img}" alt="">
-          <a class="index${i}" href="single.html">New</a>
+          <a class="index${i+1}" href="single.html">New</a>
         <div class="item">
             <h4>${list.product}</h4>
             <p>${list.price}</p>
