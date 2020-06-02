@@ -49,11 +49,9 @@
     // }
     
     // 搜尋
-    let searchclick = document.querySelector('.nav .fa-search')
+    
     let search = document.querySelector('.search')
     let closebtn= document.querySelector('.fa-times')
-
-
    
     closebtn.onclick=function(){
       search.style.display='none'
