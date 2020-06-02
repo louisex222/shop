@@ -49,7 +49,7 @@
     // }
     
     // 搜尋
-    let searchclick = document.querySelector('.nav .fa-search')
+    
     let search = document.querySelector('.search')
     let closebtn= document.querySelector('.fa-times')
 
@@ -173,46 +173,63 @@
     }
     mycart.setAttribute('data-text',item)
 
-      let timeline = new TimelineMax({
-  
-      })
-      timeline.from('.intro',1,{
-        opacity: 0,
-        top: 30+'px'
-      })
-      timeline.to('.cart',1,{
-        scale: 1.2,
-        ease: "power1.out", y: 50
-      })
-      
-      timeline.from('.nav ',1,{
-        opacity: 1,
-        ease: 'expo.out'
-        
-      })
-  
+    
     //  至頂
     let toTop = document.querySelector('#top')
     let timers
     let begin = 0
     let end =0 
-    function scroll(){
-      let scrolltop = document.body.scrollTop
-      scrolltop > 1500 ? toTop.style.display = 'block':toTop.style.display='none'
-      begin = scrolltop
-      toTop.onclick = function(){
+    // function scroll(){
+    //   let scrolltop = document.body.scrollTop
+    //   scrolltop > 1500 ? toTop.style.display = 'block':toTop.style.display='none'
+    //   begin = scrolltop
+    //   toTop.onclick = function(){
         
-        clearInterval(timers)
+    //     clearInterval(timers)
         
-        timers = setInterval(function(){
-          begin = begin + (end-begin)/50
-          console.log(begin,end,scrolltop)
-          document.body.scrollTop = begin
-        if(parseInt(begin)==end){
-            clearInterval(timers)
-        }    
-        },10)
-      }
-      console.log(scrolltop)
-    }
-    window.addEventListener('scroll',scroll,true)
+    //     timers = setInterval(function(){
+    //       begin = begin + (end-begin)/50
+    //       console.log(begin,end,scrolltop)
+    //       document.body.scrollTop = begin
+    //       if(parseInt(begin)==end){
+    //         clearInterval(timers)
+    //       }    
+    //     },10)
+    //   }
+      
+    // }
+    // window.addEventListener('scroll',scroll,true)
+    let timeline = new TimelineMax({
+      
+    
+    })
+    timeline.from('.intro',1,{
+      opacity: 0,
+      top: 30+'px'
+    })
+    .staggerFrom('#section .box',1,{
+      scale:0,
+      ease: Elastic.easeOut.config(1,0.3)
+    },0.15)
+    .from('#activity',0.3,{
+      opacity:0.5
+  })
+   .from('#pic',1.7,{
+     x:-1700
+   })
+  .from('.text',0.5,{
+    scale: 1.2,
+    repeat: 3
+  })
+
+  window.addEventListener('scroll',function(e){
+    let currentY = document.body.scrollTop
+    let pageHeight = document.body.scrollHeight - document.body.clientHeight
+    let progress = currentY/pageHeight
+    timeline.progress(progress)
+    timeline.pause()
+    console.log(currentY,progress,document.body.scrollHeight)
+    
+    
+  },true)
+ 
