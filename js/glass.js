@@ -52,6 +52,8 @@
     
     let search = document.querySelector('.search')
     let closebtn= document.querySelector('.fa-times')
+
+
    
     closebtn.onclick=function(){
       search.style.display='none'
@@ -185,7 +187,6 @@
         
     //     clearInterval(timers)
         
-<<<<<<< HEAD
     //     timers = setInterval(function(){
     //       begin = begin + (end-begin)/50
     //       console.log(begin,end,scrolltop)
@@ -232,17 +233,3 @@
     
   },true)
  
-=======
-        timers = setInterval(function(){
-          begin = begin + (end-begin)/50
-          console.log(begin,end,scrolltop)
-          document.body.scrollTop = begin
-        if(parseInt(begin)==end){
-            clearInterval(timers)
-        }    
-        },10)
-      }
-      console.log(scrolltop)
-    }
-    window.addEventListener('scroll',scroll,true)
->>>>>>> shop/master
