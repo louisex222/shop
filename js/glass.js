@@ -214,7 +214,7 @@
     .from('#activity',0.3,{
       opacity:0.5
   })
-   .from('#pic',1.7,{
+   .from('#pic',0.7,{
      opacity: 0.5
    })
   .from('.text',0.5,{
@@ -229,7 +229,12 @@
     timeline.progress(progress)
     timeline.pause()
     console.log(currentY,progress,document.body.scrollHeight)
-    
+    let nav= document.querySelector('.nav')
+    if(currentY >100){
+      nav.classList.add('fix')
+    }else if(currentY <100) {
+      nav.classList.remove('fix')
+    }
     
   },true)
  
