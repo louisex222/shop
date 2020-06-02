@@ -215,7 +215,7 @@
       opacity:0.5
   })
    .from('#pic',1.7,{
-     x:-1700
+     opacity: 0.5
    })
   .from('.text',0.5,{
     scale: 1.2,
