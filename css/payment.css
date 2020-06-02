@@ -129,15 +129,22 @@ html,body{
     text-align: center;   
     position: relative;
 }
-
+.nav .feature {
+    height: 21px;
+}.nav .feature > ul{
+    margin-top: 0;
+}
+.nav .feature > ul li{
+    margin: 0;
+}
 .nav  ul li:nth-child(3){
     position: relative;
 }
 .nav ul li:nth-child(3) a::after{
     content: '';
     position: absolute;
-    right: -20px;
-    top: 15%;
+    right: 0px;
+    top: 50%;
     width: 0;
     height: 0;
     transform: translateY(-50%);

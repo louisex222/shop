@@ -35,9 +35,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     let closebtn= document.querySelector('.fa-times')
 
 
-    searchclick.onclick=function(){
-      search.style.display='flex'
-    }
+    // searchclick.onclick=function(){
+    //   search.style.display='flex'
+    // }
     closebtn.onclick=function(){
       search.style.display='none'
     }
@@ -70,7 +70,17 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     // cartclose.onclick=function(){
     //   cart.style.display='none'
     // }
+    let local = JSON.parse(localStorage.getItem('shopcart')) || []
+    let mycart = document.querySelector('.icon a')
+    let item =0
+    for(i in local){
+      item += local[i].count
+      
+      console.log((item))
+    }
+    mycart.setAttribute('data-text',item)
    //  至頂
+
    let toTop = document.querySelector('#top')
    let timers
    let begin = 0

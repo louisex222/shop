@@ -54,9 +54,9 @@
     let closebtn= document.querySelector('.fa-times')
 
 
-    searchclick.onclick=function(){
-      search.style.display='flex'
-    }
+    // searchclick.onclick=function(){
+    //   search.style.display='flex'
+    // }
     closebtn.onclick=function(){
       search.style.display='none'
     }
@@ -121,7 +121,7 @@
       }
      
       obj.model = function(){
-        return JSON.parse(localStorage.getItem('shopcart'))
+        return JSON.parse(localStorage.getItem('shopcart')) || []
       }
     
       obj.del =function(id){
@@ -145,56 +145,53 @@
               
               shoplist.addcart(id,name,count,price)
               
-            let mycart = document.querySelector('.icon a')
-            let local = shoplist.model()
-            function  myCart(cart){
-              let item =0
+              let mycart = document.querySelector('.icon a')
+              let local = shoplist.model()
+              
+          let myCart=  (function (cart){
+              let item = 0
               for(i in local){
                 item += local[i].count
                 
                 console.log((item))
               }
               mycart.setAttribute('data-text',item)
-          }
-          myCart()
-          }
-          
-          
-        }   
+          })()
+        }
+        
+        
+      }   
     }
+    
     cartLocal()   
    
-  
-    
-
-    let timeline = new TimelineMax({
-
-    })
-    timeline.from('.intro',1,{
-      opacity: 0,
-      top: 30+'px'
-    })
-    timeline.to('.cart',1,{
-      scale: 1.2,
-      ease: "power1.out", y: 50
-    })
-    
-    timeline.from('.nav ',1,{
-      opacity: 1,
-      ease: 'expo.out'
-      
-    })
-    
-
     let local = shoplist.model()
     let mycart = document.querySelector('.icon a')
-      let item =0
-      for(i in local){
-        item += local[i].count
-        
-        console.log((item))
-      }
+    let item =0
+    for(i in local){
+      item += local[i].count
+      
+      console.log((item))
+    }
     mycart.setAttribute('data-text',item)
+
+      let timeline = new TimelineMax({
+  
+      })
+      timeline.from('.intro',1,{
+        opacity: 0,
+        top: 30+'px'
+      })
+      timeline.to('.cart',1,{
+        scale: 1.2,
+        ease: "power1.out", y: 50
+      })
+      
+      timeline.from('.nav ',1,{
+        opacity: 1,
+        ease: 'expo.out'
+        
+      })
   
     //  至頂
     let toTop = document.querySelector('#top')

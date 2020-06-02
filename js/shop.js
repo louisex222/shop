@@ -25,9 +25,9 @@
     let closebtn= document.querySelector('.fa-times')
 
 
-    searchclick.onclick=function(){
-      search.style.display='flex'
-    }
+    // searchclick.onclick=function(){
+    //   search.style.display='flex'
+    // }
     closebtn.onclick=function(){
       search.style.display='none'
     }

@@ -24,9 +24,7 @@
     let closebtn= document.querySelector('.fa-times')
 
 
-    searchclick.onclick=function(){
-      search.style.display='flex'
-    }
+    
     closebtn.onclick=function(){
       search.style.display='none'
     }
@@ -61,21 +59,30 @@
     // }
    
      // 時間的倒數 至四月一日
-     let timer = null  
-     timer = setInterval(function(){
-       let then = new Date('June 24, 2020 00:00:00').getTime()
-       let now = new Date().getTime()
-       let count = Math.round((then-now)/1000)
-       let seconds = Math.floor(count%60)
-       let minutes = Math.floor((count%3600)/60)
-       let hours = Math.floor((count/3600)%24)
-       let days = Math.floor(count/3600/24)
-       document.querySelector('.day').innerText = `${days}`
-       document.querySelector('.hour').innerText = `${hours}`
-       document.querySelector('.min').innerText = `${minutes}`
-       document.querySelector('.sec').innerText = `${seconds}`
-     },1000)
- 
+    //  let timer = null  
+    //  timer = setInterval(function(){
+    //    let then = new Date('June 24, 2020 00:00:00').getTime()
+    //    let now = new Date().getTime()
+    //    let count = Math.round((then-now)/1000)
+    //    let seconds = Math.floor(count%60)
+    //    let minutes = Math.floor((count%3600)/60)
+    //    let hours = Math.floor((count/3600)%24)
+    //    let days = Math.floor(count/3600/24)
+    //    document.querySelector('.day').innerText = `${days}`
+    //    document.querySelector('.hour').innerText = `${hours}`
+    //    document.querySelector('.min').innerText = `${minutes}`
+    //    document.querySelector('.sec').innerText = `${seconds}`
+    //  },1000)
+    let local = JSON.parse(localStorage.getItem('shopcart'))
+    let mycart = document.querySelector('.icon a')
+    let item =0
+    for(i in local){
+      item += local[i].count
+      
+      console.log((item))
+    }
+    mycart.setAttribute('data-text',item)
+
      //  至頂
     let toTop = document.querySelector('#top')
     let timers
