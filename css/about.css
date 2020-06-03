@@ -904,7 +904,7 @@ html,body{
 #top{
     width: 43px;
     height: 43px;
-    background: url(/images/prev.png);
+    background: url(../images/prev.png);
     position: fixed;
     right: 50px;
     bottom: 400px;
