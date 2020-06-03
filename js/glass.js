@@ -218,17 +218,17 @@
     }else  {
       nav.classList.remove('fix')
     }
-    let scrolltop = document.body.scrollTop
-    scrolltop > 1500 ? toTop.style.display = 'block':toTop.style.display='none'
-    begin = scrolltop
+    
+    currentY > 1500 ? toTop.style.display = 'block':toTop.style.display='none'
+    begin = currentY
     toTop.onclick = function(){
       
       clearInterval(timers)
       
       timers = setInterval(function(){
         begin = begin + (end-begin)/50
-        console.log(begin,end,scrolltop)
-        document.body.scrollTop = begin
+        
+        document.body.currentY = begin
         if(parseInt(begin)==end){
           clearInterval(timers)
         }    
