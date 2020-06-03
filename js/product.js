@@ -199,7 +199,39 @@
         }    
         },10)
       }
+      let nav= document.querySelector('.nav')
+    if(scrolltop >=100){
+      nav.classList.add('fix')
+    }else  {
+      nav.classList.remove('fix')
+    }
       console.log(scrolltop)
     }
     window.addEventListener('scroll',scroll,true)
+
+    
+    $('#wrap .bigbox2  h2').textillate({
+      
+      in:{
+        effect: 'fadeIn',
+        type: 'word'
+      },
+      out:{
+        effect: 'fadeIn',
+        type:'word'
+      },
+      callback: function(){
+        $('#wrap .bigbox2  p').textillate({
+          loop: true,
+          in:{
+            effect: 'fadeIn',
+            type: 'word'
+          },
+          out:{
+            effect: 'fadeIn',
+            type:'word'
+          },
+        })
+      }
+    })
     

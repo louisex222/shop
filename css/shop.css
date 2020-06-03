@@ -119,6 +119,17 @@ html,body{
     text-align: center;
     position: relative;
 }
+.nav.fix{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.8;
+}
 .nav ul{
     display:inline-flex;
     justify-content: center;
@@ -883,8 +894,12 @@ html,body{
     line-height: 30.4px;
 }
 #footer .box3 li{
-    color: #616263;
     margin-top: 10px;
+}
+#footer .box3 a{
+    text-decoration: none;
+    color: #616263;
+    
 }
 #footer .box4 p{
     color:#616263;

@@ -388,6 +388,17 @@ html,body{
     text-align: center;
     position: relative;
 }
+.nav.fix{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.7;
+}
 .nav ul{
     display:inline-flex;
     justify-content: center;
@@ -626,6 +637,8 @@ html,body{
     border: 2px solid #ff4e00;
     padding:  10px 40px;
     background-color: #f5f7f7;
+    cursor: pointer;
+    
 }
 .part{
     text-align: center;
@@ -647,6 +660,8 @@ html,body{
     justify-content: center;
     position: relative;
     margin:  0 10px;
+    overflow: hidden;
+    
 }
 
 #partners .box::after{
@@ -667,6 +682,10 @@ html,body{
 }
 #partners .img img{
     max-width: 100%;
+}
+#partners .box:hover .img{
+    transition: ease-in-out 0.5s;
+    transform: scale(1.2);
 }
 #partners .box .text{
    position: absolute;
@@ -725,6 +744,14 @@ html,body{
     font-size: 30px;
     
 }
+#content .box i:hover{
+    animation: rotate 1s;
+}
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
 #content .box h3{
     letter-spacing: 3px;
 }
@@ -741,6 +768,7 @@ html,body{
     border: 2px solid #ff4e00;
     background-color: #fff;
     max-width: 150px;
+    cursor: pointer;
 }
 /* activity */
 #activity{
@@ -932,13 +960,17 @@ html,body{
 #footer .box2 p{
     color: #616263;
     font-size: 14.4px;
-    
     letter-spacing: 1px;
     line-height: 30.4px;
 }
 #footer .box3 li{
-    color: #616263;
+    
     margin-top: 10px;
+}
+#footer .box3 a{
+    text-decoration: none;
+    color: #616263;
+    
 }
 #footer .box4 p{
     color:#616263;
@@ -968,6 +1000,7 @@ html,body{
     border: none;
     color:#ff4e00;
     font-size: 20px;
+    cursor: pointer;
 }
 #footer .copy{
     width: 100%;

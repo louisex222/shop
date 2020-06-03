@@ -179,6 +179,12 @@
         },10)
       }
       
+      let nav= document.querySelector('.nav')
+    if(scrolltop >=100){
+      nav.classList.add('fix')
+    }else  {
+      nav.classList.remove('fix')
+    }
     }
     window.addEventListener('scroll',scroll,true)
 
@@ -232,4 +238,20 @@
     }
     
     input.addEventListener('keyup',list)
+
+    let timeline = new TimelineMax()
     
+    .staggerFrom('#content .box',2.4,{
+      scale:0,
+      ease: 'bounce.out'
+    },0.3)
+
+    $('.new h3').textillate({
+      in:{effect:'fadeIn'},
+      loop:true,
+      type:'char',
+      out:{
+        effect:'fadeIn',
+        type:'char'
+      }
+    })

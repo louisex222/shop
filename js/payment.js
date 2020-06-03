@@ -183,6 +183,38 @@
       }    
       },10)
     }
+    let nav= document.querySelector('.nav')
+    if(scrolltop >=100){
+      nav.classList.add('fix')
+    }else  {
+      nav.classList.remove('fix')
+    }
     console.log(scrolltop)
   }
   window.addEventListener('scroll',scroll,true)
+
+  $('.wrap h2').textillate({
+    loop:true,
+    in:{
+      effect:'fadeIn',
+      type:'char'
+    },
+    out:{
+      effect:'fadeOut',
+      type: 'char',
+      reserve: true
+    }
+  })
+  
+  $('.wrap button').textillate({
+    loop:true,
+    in:{
+      effect:'fadeIn',
+      type:'char'
+    },
+    out:{
+      effect:'fadeOut',
+      type: 'char',
+      reserve: true
+    }
+  })

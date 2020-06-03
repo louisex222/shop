@@ -102,6 +102,17 @@ html,body{
     text-align: center;
     position: relative;
 }
+.nav.fix{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.8;
+}
 .nav ul{
     display:inline-flex;
     justify-content: center;
@@ -590,10 +601,11 @@ html,body{
     position: relative;
 }
 #wrap .bigbox1 .first{
-    max-width: 95%;
+    max-width: 100%;
     height: auto;
-    border: 1px solid #D1CFCF;
     margin-bottom: 10px;
+    
+    
 }
 #wrap .wrap .mark{
     min-width: 381px;
@@ -605,7 +617,16 @@ html,body{
     
 }
 #wrap .wrap{
+    border: 1px solid #D1CFCF;
     position: relative;
+    overflow: hidden;
+    
+}
+#wrap .wrap img{
+    transition:  0.5s;
+}
+#wrap .wrap img:hover{
+    transform: scale(1.2); 
 }
 #wrap .wrap .float{
     position: absolute;
@@ -618,14 +639,16 @@ html,body{
     display:flex;
     margin: 0 auto;
     box-sizing: border-box;
-    justify-content: space-evenly;
+    justify-content: space-between;
     
 }
 #wrap .bigbox1 .box img{
-    max-width: calc(90%/3);
+    max-width: calc(100%/3);
     border: 1px solid #D1CFCF;
     box-sizing: border-box;
+
 }
+
 #wrap .bigbox2 {
     max-width: 70%;
     display: flex;
@@ -716,7 +739,6 @@ html,body{
     width: 20%;
     padding: 10px;
     background-color: #000;
-    color: #fff;
     font-weight: 900;
     font-size: 12px;
     word-spacing: 2px;
@@ -724,6 +746,10 @@ html,body{
     outline: none;
     margin-bottom: 20px;
     cursor: pointer;
+}
+#wrap .bigbox2 .box button a{
+    color: #fff;
+    text-decoration: none;
 }
 #wrap .bigbox2 .box button:hover{
     background-color: #ff4e00;
@@ -823,8 +849,13 @@ html,body{
     line-height: 30.4px;
 }
 #footer .box3 li{
-    color: #616263;
+    
     margin-top: 10px;
+}
+#footer .box3 a{
+    text-decoration: none;
+    color: #616263;
+    
 }
 #footer .box4 p{
     color:#616263;

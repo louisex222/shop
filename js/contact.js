@@ -102,8 +102,37 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
        }    
        },10)
      }
+     let nav= document.querySelector('.nav')
+    if(scrolltop >=100){
+      nav.classList.add('fix')
+    }else  {
+      nav.classList.remove('fix')
+    }
      console.log(scrolltop)
    }
    window.addEventListener('scroll',scroll,true)
     
-   
+   $('#section .text p').textillate({
+     
+     loop:true,
+     in:{ 
+       effect: 'fadeIn',
+       type:'char'
+     },
+     out:{
+       effect:'fadeIn',
+       type: 'char'
+     }
+   })
+
+   $('#section .box button').textillate({
+      loop:true,
+      in:{ 
+        effect: 'fadeIn',
+        type:'char'
+      },
+      out:{
+        effect:'fadeIn',
+        type: 'char'
+      }
+   })

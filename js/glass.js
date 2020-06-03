@@ -179,62 +179,61 @@
     let timers
     let begin = 0
     let end =0 
-    // function scroll(){
-    //   let scrolltop = document.body.scrollTop
-    //   scrolltop > 1500 ? toTop.style.display = 'block':toTop.style.display='none'
-    //   begin = scrolltop
-    //   toTop.onclick = function(){
-        
-    //     clearInterval(timers)
-        
-    //     timers = setInterval(function(){
-    //       begin = begin + (end-begin)/50
-    //       console.log(begin,end,scrolltop)
-    //       document.body.scrollTop = begin
-    //       if(parseInt(begin)==end){
-    //         clearInterval(timers)
-    //       }    
-    //     },10)
-    //   }
-      
-    // }
-    // window.addEventListener('scroll',scroll,true)
-    let timeline = new TimelineMax({
-      
     
-    })
+    let timeline = new TimelineMax()
     timeline.from('.intro',1,{
       opacity: 0,
       top: 30+'px'
     })
-    .staggerFrom('#section .box',1,{
+    .staggerFrom('#section .box',2.4,{
       scale:0,
-      ease: Elastic.easeOut.config(1,0.3)
-    },0.15)
+      ease: 'bounce.out'
+    },0.3)
     .from('#activity',0.3,{
       opacity:0.5
   })
-   .from('#pic',0.7,{
+   .from('#pic',0.3,{
      opacity: 0.5
    })
-  .from('.text',0.5,{
-    scale: 1.2,
-    repeat: 3
+   
+  .from('#article',0.3,{
+    opacity:0.5
   })
-
+  .from('#footer',0.3,{
+    opacity:0.5
+  })
+  
+  
+  
   window.addEventListener('scroll',function(e){
     let currentY = document.body.scrollTop
     let pageHeight = document.body.scrollHeight - document.body.clientHeight
     let progress = currentY/pageHeight
     timeline.progress(progress)
-    timeline.pause()
-    console.log(currentY,progress,document.body.scrollHeight)
+    // timeline.pause()
+    
     let nav= document.querySelector('.nav')
-    if(currentY >100){
+    if(currentY >=100){
       nav.classList.add('fix')
-    }else if(currentY <100) {
+    }else  {
       nav.classList.remove('fix')
     }
-    
+    let scrolltop = document.body.scrollTop
+    scrolltop > 1500 ? toTop.style.display = 'block':toTop.style.display='none'
+    begin = scrolltop
+    toTop.onclick = function(){
+      
+      clearInterval(timers)
+      
+      timers = setInterval(function(){
+        begin = begin + (end-begin)/50
+        console.log(begin,end,scrolltop)
+        document.body.scrollTop = begin
+        if(parseInt(begin)==end){
+          clearInterval(timers)
+        }    
+      },10)
+    }
+        
   },true)
  

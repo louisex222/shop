@@ -105,7 +105,51 @@
         }    
         },10)
       }
+      let nav= document.querySelector('.nav')
+      let currentY = document.body.scrollTop
+      if(currentY >=100){
+        nav.classList.add('fix')
+      }else  {
+        nav.classList.remove('fix')
+      }
       console.log(scrolltop)
     }
     window.addEventListener('scroll',scroll,true)
+
+   
+    $('#bigbox .box h2').textillate({
+      
+      in:{effect:'fadeIn',
+        shuffle: true},
+        type: 'word',
+        
+        
+    })
+    $('#bigbox .box p').textillate({
+      in:{effect:'fadeIn'},
+      sync:true,
+      type: 'word',
+      callback:function(){
+        $('#bigbox button').textillate({
+          in:{effect:'fadeIn'},
+          type:'char',
+          loop:true,
+          out:{
+            effect:'fadeIn',
+            type:'char'
+          }
+        })
+      }
+    })
+
+    $('#content button').textillate({
+      in:{effect:'fadeIn'},
+      loop:true,
+      type:'char',
+      out:{
+        effect:'fadeIn',
+        type:'char'
+      }
+    })
+    
     
