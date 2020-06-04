@@ -76,6 +76,7 @@ html,body{
     align-items: center;
     border: 1px solid #dde2e6;
     padding: 10px 20px;
+    margin-left: 5px;
 }
 #header .icon h3{
     font-size: 15px;
