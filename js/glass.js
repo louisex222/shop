@@ -265,13 +265,6 @@ target.innerHTML = html;
 });
 }
 
-// 登入 FB, 未偵測到加入會員
-else if (response.status === "not_authorized") {
-target.innerHTML = "已登入 FB";
-}
-
-
-
 }
 
 

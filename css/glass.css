@@ -74,6 +74,7 @@ html,body{
     align-items: center;
     border: 1px solid #dde2e6;
     padding: 10px 20px;
+    margin-left: 5px;
 }
 #header .icon h3{
     font-size: 15px;
@@ -1411,8 +1412,4 @@ html,body{
         margin: 10px 0;
         padding-left: 30px  ;
     }
-}
-
-.fbbtn{
-    margin-right: 10px;
 }
