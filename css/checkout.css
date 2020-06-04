@@ -105,13 +105,22 @@ html,body{
 .nav.fix{
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
     z-index: 10;
     width: 100%;
     background-color: #fff;
+    animation: in 1s;
     opacity: 0.8;
+}
+@keyframes in{
+    0%{
+        height: 0;
+        opacity: 0;
+    }
+    100%{
+        height: 81px;
+        opacity: 0.8;
+    }
 }
 .nav ul{
     display:inline-flex;
