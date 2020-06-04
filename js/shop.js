@@ -25,24 +25,11 @@
     let closebtn= document.querySelector('.fa-times')
 
 
-    // searchclick.onclick=function(){
-    //   search.style.display='flex'
-    // }
+    
     closebtn.onclick=function(){
       search.style.display='none'
     }
-    // 登入
-    let user = document.querySelector('.fa-user')
-    let login= document.querySelector('.login')
-    let loginclose = login.querySelector('.fa-times')
     
-    user.onclick=function(){
-      login.style.right="0"
-      login.style.display ='flex'
-    }
-    loginclose.onclick =function(){
-      login.style.right='-375px'
-    }
     // nav
     let bar = document.querySelector('.fa-bars')
     let ul = document.querySelector('.nav .wrap')
@@ -50,16 +37,7 @@
       ul.classList.toggle('display')  
       
     }
-    // 購物車
-    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    // let cartlist =document.querySelector('.cart')
-    // let cartclose =cartlist.querySelector('.fa-times')
-    // mycart.onclick=function(){
-    //   cartlist.style.display='flex'
-    // }
-    // cartclose.onclick=function(){
-    //   cartlist.style.display='none'
-    // }
+  
    
     
    // 商品增加至購物車

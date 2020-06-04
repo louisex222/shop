@@ -22,12 +22,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     bigbox1.onmouseleave =function(){
       bigbox1.style.display='none'
     }
-    // shop.onmouseover=function(){
-    //   bigbox2.style.display='flex'
-    // }
-    // bigbox2.onmouseleave =function(){
-    //   bigbox2.style.display='none'
-    // }
+    
     
     // 搜尋
     let searchclick = document.querySelector('.nav .fa-search')
@@ -41,18 +36,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     closebtn.onclick=function(){
       search.style.display='none'
     }
-    // 登入
-    let user = document.querySelector('.fa-user')
-    let login= document.querySelector('.login')
-    let loginclose = login.querySelector('.fa-times')
     
-    user.onclick=function(){
-      login.style.right="0"
-      login.style.display ='flex'
-    }
-    loginclose.onclick =function(){
-      login.style.right='-375px'
-    }
 
     let bar = document.querySelector('.fa-bars')
     let ul = document.querySelector('.nav .wrap')
@@ -60,16 +44,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       ul.classList.toggle('display')  
       
     }
-    // // 購物車
-    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    // let cart =document.querySelector('.cart')
-    // let cartclose =cart.querySelector('.fa-times')
-    // mycart.onclick=function(){
-    //   cart.style.display='flex'
-    // }
-    // cartclose.onclick=function(){
-    //   cart.style.display='none'
-    // }
+   
     let local = JSON.parse(localStorage.getItem('shopcart')) || []
     let mycart = document.querySelector('.icon a')
     let item =0
@@ -112,6 +87,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
    }
    window.addEventListener('scroll',scroll,true)
     
+
+  //  動畫
    $('#section .text p').textillate({
      
      loop:true,

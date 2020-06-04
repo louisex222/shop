@@ -30,18 +30,7 @@
     closebtn.onclick=function(){
       search.style.display='none'
     }
-    // 登入
-    let user = document.querySelector('.fa-user')
-    let login= document.querySelector('.login')
-    let loginclose = login.querySelector('.fa-times')
     
-    user.onclick=function(){
-      login.style.right="0"
-      login.style.display ='flex'
-    }
-    loginclose.onclick =function(){
-      login.style.right='-375px'
-    }
     // nav
     let bar = document.querySelector('.fa-bars')
     let ul = document.querySelector('.nav .wrap')
@@ -49,55 +38,7 @@
       ul.classList.toggle('display')  
       
     }
-    // // 購物車
-    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    // let cart =document.querySelector('.cart')
-    // let cartclose =cart.querySelector('.fa-times')
-    // mycart.onclick=function(){
-    //   cart.style.display='flex'
-    // }
-    // cartclose.onclick=function(){
-    //   cart.style.display='none'
-    // }
-    // 放大鏡
-    let bigwrap = document.querySelector('#wrap')
-    let img =  bigwrap.querySelector('.bigimg')
-    let bigimg = bigwrap.querySelector('.bigimg img')
-    let wrap = document.querySelector('#wrap .wrap')
-    let mark = wrap.querySelector('.mark')
-    let first = wrap.querySelector('.first')
-    let float = wrap.querySelector('.float')
-    console.log(first.src)
-    // mark.onmousemove = function(e){
-    //     let left =  e.clientX - bigwrap.offsetLeft -mark.offsetLeft- float.offsetWidth/2
-    //     let top =   e.clientY  -bigwrap.offsetTop- mark.offsetTop - float.offsetHeight/2 +document.body.scrollTop
-    //     let scrollTop = document.documentElement.scrollTop
-    //     if(left < 0){
-    //         left= 0
-    //     }else if(  left > mark.offsetWidth -float.offsetWidth){
-    //         left =mark.offsetWidth -float.offsetWidth
-    //     }
-    //     if(top < 0){
-    //         top = 0
-    //     }else if(top > mark.offsetHeight -float.offsetHeight){
-    //         top = mark.offsetHeight -float.offsetHeight
-    //     }
-    //     float.style.display ='block'
-    //     float.style.left=`${left}px`
-    //     float.style.top =`${top}px`
-        
-    //     let percentX =  left/(mark.offsetWidth -float.offsetWidth)
-    //     let percentY = top /(mark.offsetHeight -float.offsetHeight)
-       
-    //     img.style.display='block'
-    //     bigimg.style.left = -percentX *(bigimg.offsetWidth-img.offsetWidth)+'px'
-    //     bigimg.style.top = -percentY*(bigimg.offsetHeight-img.offsetHeight)-scrollTop+'px'
-        
-    // }
-    //     mark.onmouseleave = function(){
-    //         float.style.display='none'
-    //         img.style.display= 'none'
-    //     }
+   
    
     let  imgPoint = bigwrap.querySelectorAll('.box img')
     console.log(imgPoint)
@@ -210,6 +151,7 @@
     window.addEventListener('scroll',scroll,true)
 
     
+    // 動畫
     $('#wrap .bigbox2  h2').textillate({
       
       in:{

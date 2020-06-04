@@ -24,40 +24,18 @@
     let closebtn= document.querySelector('.fa-times')
 
 
-    // searchclick.onclick=function(){
-    //   search.style.display='flex'
-    // }
+    
     closebtn.onclick=function(){
       search.style.display='none'
     }
-    // 登入
-    let user = document.querySelector('.fa-user')
-    let login= document.querySelector('.login')
-    let loginclose = login.querySelector('.fa-times')
     
-    user.onclick=function(){
-      login.style.right="0"
-      login.style.display ='flex'
-    }
-    loginclose.onclick =function(){
-      login.style.right='-375px'
-    }
     let bar = document.querySelector('.fa-bars')
     let wrap = document.querySelector('.nav .wrap')
     bar.onclick= function(){
       wrap.classList.toggle('display')  
       
     }
-    // // 購物車
-    // let mycart =document.querySelector('#header .fa-cart-arrow-down')
-    // let cartlist =document.querySelector('.cart')
-    // let cartclose =cartlist.querySelector('.fa-times')
-    // mycart.onclick=function(){
-    //   cartlist.style.display='flex'
-    // }
-    // cartclose.onclick=function(){
-    //   cartlist.style.display='none'
-    // }
+   
     
     // 添加清單
     let shoplist = (function(){
@@ -274,6 +252,7 @@
     }
     window.addEventListener('scroll',scroll,true)
 
+    // 動畫
     $('.wrap h2').textillate({
       loop:true,
       in:{
