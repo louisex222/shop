@@ -601,7 +601,7 @@ html,body{
     position: relative;
 }
 #wrap .bigbox1 .first{
-    max-width: 100%;
+    width: 100%;
     height: auto;
     margin-bottom: 10px;
     
@@ -620,7 +620,7 @@ html,body{
     border: 1px solid #D1CFCF;
     position: relative;
     overflow: hidden;
-    
+    width: 100%;
 }
 #wrap .wrap img{
     transition:  0.5s;
