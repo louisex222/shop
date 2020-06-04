@@ -255,12 +255,12 @@ html = "";
 
 // 登入 FB 且已加入會員
 if (response.status === 'connected') {
-html = "已登入 FB ";
+html = "已登入";
 
 FB.api('/me?fields=id,name,email', function(response) {
 console.log(response);
-html += "會員暱稱：" + response.name + "<br/>";
-html += "會員 email：" + response.email;
+html += "會員暱稱：" + response.name
+
 target.innerHTML = html;
 });
 }
@@ -270,10 +270,8 @@ else if (response.status === "not_authorized") {
 target.innerHTML = "已登入 FB";
 }
 
-// 未登入 FB
-else {
-target.innerHTML = "未登入 FB";
-}
+
+
 }
 
 
