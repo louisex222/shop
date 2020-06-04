@@ -971,3 +971,9 @@ html,body{
     
     
 }
+
+#FBstatus{
+    color: #ff4e00;
+    font-weight: 900;
+    padding:  0 5px;
+}

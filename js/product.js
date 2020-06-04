@@ -39,6 +39,14 @@
       
     }
    
+    // 放大鏡
+    let bigwrap = document.querySelector('#wrap')
+    let bigimg = bigwrap.querySelector('.bigimg img')
+    
+    
+    let first = wrap.querySelector('.first')
+   
+  
    
     let  imgPoint = bigwrap.querySelectorAll('.box img')
     console.log(imgPoint)
@@ -151,7 +159,6 @@
     window.addEventListener('scroll',scroll,true)
 
     
-    // 動畫
     $('#wrap .bigbox2  h2').textillate({
       
       in:{
