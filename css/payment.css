@@ -1042,3 +1042,9 @@ form {
     border-radius: 5px;
     color: #fff;
 }
+
+#FBstatus{
+    color: #ff4e00;
+    font-weight: 900;
+    padding:  0 5px;
+}

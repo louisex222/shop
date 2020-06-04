@@ -235,3 +235,50 @@
       }
     })
     
+
+    
+  // fb
+
+  window.fbAsyncInit = function() {
+    FB.init({
+    appId: '2559611937684469', // 填入 FB APP ID
+    cookie: true,
+    xfbml: true,
+    version: 'v7.0'
+    });
+    FB.AppEvents.logPageView()
+    FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+    });
+};
+
+// 處理各種登入身份
+function statusChangeCallback(response) {
+console.log(response);
+var target = document.getElementById("FBstatus"),
+html = "";
+
+// 登入 FB 且已加入會員
+if (response.status === 'connected') {
+
+
+FB.api('/me?fields=id,name,email', function(response) {
+console.log(response);
+html += "會員暱稱：" + response.name
+
+target.innerHTML = html;
+});
+}
+
+}
+
+
+// 載入 FB SDK
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s);
+js.id = id;
+js.src = "https://connect.facebook.net/zh_TW/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));

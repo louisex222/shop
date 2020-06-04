@@ -1019,3 +1019,10 @@ html,body{
         max-width: 100%;
     }
 }
+
+
+#FBstatus{
+    color: #ff4e00;
+    font-weight: 900;
+    padding:  0 5px;
+}

@@ -1055,3 +1055,9 @@ table .close:hover{
         padding-left: 30px  ;
     }
 }
+
+#FBstatus{
+    color: #ff4e00;
+    font-weight: 900;
+    padding:  0 5px;
+}
