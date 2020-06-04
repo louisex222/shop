@@ -250,12 +250,12 @@
 // 處理各種登入身份
 function statusChangeCallback(response) {
 console.log(response);
-var target = document.getElementById("FB_STATUS_1"),
+var target = document.getElementById("FBstatus"),
 html = "";
 
 // 登入 FB 且已加入會員
 if (response.status === 'connected') {
-html = "已登入";
+
 
 FB.api('/me?fields=id,name,email', function(response) {
 console.log(response);
