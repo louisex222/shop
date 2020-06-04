@@ -41,14 +41,7 @@
     bigbox1.onmouseleave =function(){
       bigbox1.style.display='none'
     }
-    // shop.onmouseover=function(){
-    //   bigbox2.style.display='flex'
-    // }
-    // bigbox2.onmouseleave =function(){
-    //   bigbox2.style.display='none'
-    // }
-    
-    // 搜尋
+   
     
     let search = document.querySelector('.search')
     let closebtn= document.querySelector('.fa-times')
@@ -59,17 +52,17 @@
       search.style.display='none'
     }
     // 登入
-    let user = document.querySelector('.fa-user')
-    let login= document.querySelector('.login')
-    let loginclose = login.querySelector('.fa-times')
+    // let user = document.querySelector('.fa-user')
+    // let login= document.querySelector('.login')
+    // let loginclose = login.querySelector('.fa-times')
     
-    user.onclick=function(){
-      login.style.right="0"
-      login.style.display ='flex'
-    }
-    loginclose.onclick =function(){
-      login.style.right='-375px'
-    }
+    // user.onclick=function(){
+    //   login.style.right="0"
+    //   login.style.display ='flex'
+    // }
+    // loginclose.onclick =function(){
+    //   login.style.right='-375px'
+    // }
     let bar = document.querySelector('.fa-bars')
     let ul = document.querySelector('.nav .wrap')
     bar.onclick= function(){
@@ -180,6 +173,7 @@
     let begin = 0
     let end =0 
     
+    // 動畫
     let timeline = new TimelineMax()
     timeline.from('.intro',1,{
       opacity: 0,
@@ -214,7 +208,7 @@
     
     let nav= document.querySelector('.nav')
     if(currentY >=100){
-      nav.classList.add('fix')
+        nav.classList.add('fix')
     }else  {
       nav.classList.remove('fix')
     }
@@ -237,3 +231,58 @@
         
   },true)
  
+
+  // fb
+
+  window.fbAsyncInit = function() {
+    FB.init({
+    appId: '2559611937684469', // 填入 FB APP ID
+    cookie: true,
+    xfbml: true,
+    version: 'v7.0'
+    });
+    FB.AppEvents.logPageView()
+    FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+    });
+};
+
+// 處理各種登入身份
+function statusChangeCallback(response) {
+console.log(response);
+var target = document.getElementById("FB_STATUS_1"),
+html = "";
+
+// 登入 FB 且已加入會員
+if (response.status === 'connected') {
+html = "已登入 FB ";
+
+FB.api('/me?fields=id,name,email', function(response) {
+console.log(response);
+html += "會員暱稱：" + response.name + "<br/>";
+html += "會員 email：" + response.email;
+target.innerHTML = html;
+});
+}
+
+// 登入 FB, 未偵測到加入會員
+else if (response.status === "not_authorized") {
+target.innerHTML = "已登入 FB";
+}
+
+// 未登入 FB
+else {
+target.innerHTML = "未登入 FB";
+}
+}
+
+
+// 載入 FB SDK
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s);
+js.id = id;
+js.src = "https://connect.facebook.net/zh_TW/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));

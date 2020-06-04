@@ -20,7 +20,9 @@
 
         </div>
         <div class="icon">
-            <i class="fa fa-user"></i>
+            <!-- <i class="fa fa-user"></i> -->
+            <span id="FB_STATUS_1"></span>
+            <fb:login-button scope="public_profile,email" autologoutlink="true" onlogin="checkLoginState();"></fb:login-button>
             <div>
                 <h3>My Cart</h3>
                     <a href="checkout.html" data-text="">
@@ -541,6 +543,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script src="js/glass.js"></script>
-   
+    
 </body>
 </html>
