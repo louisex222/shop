@@ -179,10 +179,10 @@
       opacity: 0,
       top: 30+'px'
     })
-    .staggerFrom('#section .box',2.4,{
+    .staggerFrom('#section .box',1.6,{
       scale:0,
       ease: 'bounce.out'
-    },0.3)
+    },0.2)
     .from('#activity',0.3,{
       opacity:0.5
   })
@@ -198,14 +198,11 @@
   })
   
   
+  timeline.progress(progress)
   
   window.addEventListener('scroll',function(e){
     let currentY = document.body.scrollTop
-    let pageHeight = document.body.scrollHeight - document.body.clientHeight
-    let progress = currentY/pageHeight
-    timeline.progress(progress)
-    // timeline.pause()
-    
+   
     let nav= document.querySelector('.nav')
     if(currentY >=100){
         nav.classList.add('fix')
