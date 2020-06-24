@@ -198,7 +198,7 @@
   })
   
   
-  timeline.progress(progress)
+  
   
   window.addEventListener('scroll',function(e){
     let currentY = document.body.scrollTop
