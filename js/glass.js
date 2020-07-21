@@ -1,5 +1,5 @@
   // RWD 輪播
-  let mySwiper = new Swiper ('.swiper-container', {
+  let mySwiper = new Swiper('.swiper-container', {
     
     loop: true,
     
@@ -175,10 +175,7 @@
     
     // 動畫
     let timeline = new TimelineMax()
-    timeline.from('.intro',1,{
-      opacity: 0,
-      top: 30+'px'
-    })
+    timeline
     .staggerFrom('#section .box',1.6,{
       scale:0,
       ease: 'bounce.out'
