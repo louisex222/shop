@@ -133,7 +133,7 @@
     let end =0 
     function scroll(){
       let scrolltop = document.body.scrollTop
-      scrolltop > 500 ? toTop.style.display = 'block':toTop.style.display='none'
+      scrolltop > 300 ? toTop.style.display = 'block':toTop.style.display='none'
       begin = scrolltop
       toTop.onclick = function(){
         
